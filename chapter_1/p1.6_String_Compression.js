@@ -85,7 +85,6 @@ const strCompressSol2 = (inStr) => {
 	for (let i = 0; i < inStr.length; i++) {
 		if (currChar !== inStr[i]) {
 			compressedStr = compressedStr + currChar + currCount;
-			console.log(compressedStr);
 			currChar = inStr[i];
 			currCount = 1;
 		}
@@ -100,6 +99,8 @@ const strCompressSol2 = (inStr) => {
 
 	return compressedStr.length < inStr.length ? compressedStr : inStr;
 }
+//Space O(n) for compressed String
+//Time looks like O(n) but is acctually O(n^2) because string concatination O(n) time.
 console.log(strCompressSol2("aabcccccaaa")); //a2b1c5a3
 console.log(strCompressSol2("abcd")); // abcd
 console.log(strCompressSol2("aabbccc")); // a2b2c1
