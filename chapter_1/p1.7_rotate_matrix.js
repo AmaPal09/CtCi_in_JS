@@ -5,12 +5,17 @@ Given an image represented by an N X N matrix, where each pixel on the image is 
 
 /*
 Explaination:
-
+Easiest way of implementing the rotations is rotation in layers.
+Perform circular rotation.
+Move top -> temp var
+Move left -> top
+Move bottom -> left
+Move right -> bottom
+Move temp -> right
 */
 
 /*
 Questions:
-
 */
 
 /*

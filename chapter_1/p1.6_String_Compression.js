@@ -10,13 +10,11 @@ Examples
 3) "aabbc" -> a2b2c
 4) "" -> ""
 5) "aaAAAbCCcccaaAAA" -> a2A3b1C2c3a2A3
-
 */
 
 /*
 Assumption
 String contains only letters= upper and lower case
-
 */
 
 /*
