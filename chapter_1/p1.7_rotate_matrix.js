@@ -68,3 +68,5 @@ console.log(rotateMatrixSol1([[ , ], [ , ]]));
 console.log(rotateMatrixSol1([[1,2,3], [4,5,6], [7,8,9]]));
 console.log(rotateMatrixSol1([]));
 console.log(rotateMatrixSol1([[1], [2,3]]));
+//Space O(1) as it is inplace
+//Time O(n) as every cell of the matrix is handled
