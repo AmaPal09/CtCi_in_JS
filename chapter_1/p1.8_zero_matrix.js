@@ -79,3 +79,81 @@ const zeroMatSol1 = (inMatrix) => {
 	return inMatrix;
 }
 console.log(zeroMatSol1([[1,2,3,4,5],[6,7,8,9,10],[11,12,0,14,15]]));
+
+//Sol2 Refactored sol1-
+//Helper function
+const getIndexOfZeros = (inMat) => {
+
+
+		let rowIndicesWithZero = Array(inMat.length).fill(false);
+		let colIndicesWithZero = Array(inMat[0].length).fill(false);
+
+	for (let i = 0; i < inMat.length; i++) {
+		for (let j = 0; j < inMat[0].length; j++) {
+			if (inMat[i][j] === 0) {
+				rowIndicesWithZero[i] = true;
+				colIndicesWithZero[j] = true;
+			}
+		}
+	}
+	return {
+		rowIndicesWithzero: rowIndicesWithZero,
+		colIndicesWithzero: colIndicesWithZero
+	};
+}
+
+
+//Helper function
+const zerofyRowElement = (inMat, rowNum) => {
+	for (let j = 0; j < inMat[rowNum].length; j++) {
+		inMat[rowNum][j] = 0;
+	}
+}
+
+
+//Helper function
+const zerofyRow = (inMat, rowsWithZero) => {
+	for (let i = 0; i < rowsWithZero.length; i++) {
+		if (rowsWithZero[i]) {
+			zerofyRowElement(inMat, i);
+		}
+	}
+}
+
+
+//Helper function
+const zerofyColElement = (inMat, colNum) => {
+	for (let i = 0; i < inMat.length; i++) {
+		inMat[i][colNum] = 0;
+	}
+}
+
+
+//Helper function
+const zerofyCol = (inMat, colsWithZero) => {
+	for (let j = 0; j < colsWithZero.length; j++) {
+		if (colsWithZero[j]) {
+			zerofyColElement(inMat, j);
+		}
+	}
+}
+
+
+const zeroMatSol2 = (inMatrix) => {
+	if (inMatrix.length === 0 ) {
+		return inMatrix;
+	}
+
+	for (let i = 0; i < inMatrix.length; i++) {
+		if (inMatrix[0].length !== inMatrix[i].length) {
+			return inMatrix;
+		}
+	}
+
+	let indexOfZeros = getIndexOfZeros(inMatrix);
+	zerofyRow(inMatrix, indexOfZeros.rowIndicesWithzero);
+	zerofyCol(inMatrix, indexOfZeros.colIndicesWithzero);
+
+	return inMatrix;
+}
+console.log(zeroMatSol2([[1,2,3,4,5],[6,7,8,9,10],[11,12,0,14,15]]));
