@@ -23,13 +23,7 @@ Example:
 1) [[1]] -> [[1]]
 2) [[]] -> [[]]
 3) [[ , ], [ , ]] -> [[ , ], [ , ]]
-4) [[1,2,3], [4,5,6], [7,8,9]] -> [[1,4,], [2,5,8], [3,6,9]]
-123
-456
-789
-741
-852
-963
+4) [[1,2,3], [4,5,6], [7,8,9]] -> [[7,4,1], [8,5,2], [9,6,3]]
 5) [] -> []
 6) [[1], [2,3]] -> [[1], [2,3]]
 */
@@ -37,7 +31,48 @@ Example:
 
 //Sol1
 const rotateMatrixSol1 = (sqMatArray) => {
+	if ((sqMatArray.length == 0) || (sqMatArray[0].length == 0) || (sqMatArray.length !== sqMatArray[0].length)) {
+		return sqMatArray;
+	}
 
+	let len = sqMatArray.length;
+	for (let layer = 0; layer < len/2; layer++) {
+		console.log(sqMatArray);
+		let first = layer;
+		let last = len - 1 - layer;
+		console.log("first:", first)
+		console.log("last:", last)
 
+		for (let i = first; i < last; i++) {
+			console.log("i:", i);
+			let offSet = i - first;
+			console.log("offset", offSet);
 
+			let top = sqMatArray[first][i]; //save the top
+
+			//top <- left
+			sqMatArray[first][i] = sqMatArray[last-offSet][first];
+
+			//left <- bottom
+			sqMatArray[last-offSet][first] = sqMatArray[last][last-offSet];
+
+			//bottom <- right
+			sqMatArray[last][last-offSet] = sqMatArray[i][last];
+
+			//right <- top
+			sqMatArray[i][last] = top;
+
+			console.log(sqMatArray);
+
+		}
+	}
+
+	return sqMatArray;
 }
+
+// console.log(rotateMatrixSol1([[1]]));
+// console.log(rotateMatrixSol1([[]]));
+// console.log(rotateMatrixSol1([[ , ], [ , ]]));
+console.log(rotateMatrixSol1([[1,2,3], [4,5,6], [7,8,9]]));
+// console.log(rotateMatrixSol1([]));
+// console.log(rotateMatrixSol1([[1], [2,3]]));
