@@ -5,7 +5,6 @@ Write an algorithm sich that if an element in an MxN jmatrix is 0, its entire ro
 
 /*
 Explaination:
-
 */
 
 /*
