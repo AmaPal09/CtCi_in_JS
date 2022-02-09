@@ -37,16 +37,11 @@ const rotateMatrixSol1 = (sqMatArray) => {
 
 	let len = sqMatArray.length;
 	for (let layer = 0; layer < len/2; layer++) {
-		console.log(sqMatArray);
 		let first = layer;
 		let last = len - 1 - layer;
-		console.log("first:", first)
-		console.log("last:", last)
 
 		for (let i = first; i < last; i++) {
-			console.log("i:", i);
 			let offSet = i - first;
-			console.log("offset", offSet);
 
 			let top = sqMatArray[first][i]; //save the top
 
@@ -61,18 +56,15 @@ const rotateMatrixSol1 = (sqMatArray) => {
 
 			//right <- top
 			sqMatArray[i][last] = top;
-
-			console.log(sqMatArray);
-
 		}
 	}
 
 	return sqMatArray;
 }
 
-// console.log(rotateMatrixSol1([[1]]));
-// console.log(rotateMatrixSol1([[]]));
-// console.log(rotateMatrixSol1([[ , ], [ , ]]));
+console.log(rotateMatrixSol1([[1]]));
+console.log(rotateMatrixSol1([[]]));
+console.log(rotateMatrixSol1([[ , ], [ , ]]));
 console.log(rotateMatrixSol1([[1,2,3], [4,5,6], [7,8,9]]));
-// console.log(rotateMatrixSol1([]));
-// console.log(rotateMatrixSol1([[1], [2,3]]));
+console.log(rotateMatrixSol1([]));
+console.log(rotateMatrixSol1([[1], [2,3]]));
