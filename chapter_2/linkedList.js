@@ -186,28 +186,31 @@ class LinkedList {
 
 
 
-let node1 = new ListNode(1);
-let ll1 = new LinkedList(node1);
+// let node1 = new ListNode(1);
+// let ll1 = new LinkedList(node1);
 
-ll1.add(2);
-console.log(ll1.printList());
-ll1.add(4);
-console.log(ll1.printList());
-ll1.add(6);
-console.log(ll1.printList());
-ll1.insertAt(0,0);
-console.log(ll1.printList());
-ll1.insertAt(3,3);
-console.log(ll1.printList());
-ll1.insertAfter(ll1.head.next.next.next.next,5);
-console.log(ll1.printList());
-ll1.removeFromIndex(5);
-console.log(ll1.printList());
-ll1.removeElement(1);
-console.log(ll1.printList());
-console.log(ll1.indexOf(4));
-console.log(ll1.getFirst());
-console.log(ll1.getLast());
-console.log(ll1.size_of_LL());
-ll1.clear();
-console.log(ll1.printList());
+// ll1.add(2);
+// console.log(ll1.printList());
+// ll1.add(4);
+// console.log(ll1.printList());
+// ll1.add(6);
+// console.log(ll1.printList());
+// ll1.insertAt(0,0);
+// console.log(ll1.printList());
+// ll1.insertAt(3,3);
+// console.log(ll1.printList());
+// ll1.insertAfter(ll1.head.next.next.next.next,5);
+// console.log(ll1.printList());
+// ll1.removeFromIndex(5);
+// console.log(ll1.printList());
+// ll1.removeElement(1);
+// console.log(ll1.printList());
+// console.log(ll1.indexOf(4));
+// console.log(ll1.getFirst());
+// console.log(ll1.getLast());
+// console.log(ll1.size_of_LL());
+// ll1.clear();
+// console.log(ll1.printList());
+
+
+module.exports = { ListNode, LinkedList};
