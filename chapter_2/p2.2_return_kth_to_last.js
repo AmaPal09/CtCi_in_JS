@@ -124,3 +124,26 @@ ll2.printList();
 console.log(kthToLastSol1(ll2.head, 4));
 let ll3 = new LinkedList();
 console.log(kthToLastSol1(ll3.head, 0));
+
+
+//Sol2
+ const kthToLastSol2 = (headNode, k) => {
+ 	if (headNode == null) {
+ 		return 0;
+ 	}
+
+ 	let index = kthToLastSol2(headNode.next,k)+1;
+ 	if (index == k) {
+ 		console.log(`${k}th to the last node is ${headNode.val}`);
+ 	}
+ 	return index;
+ }
+let n4 = new ListNode('a');
+let ll4 = new LinkedList(n2);
+ll4.add('e');
+ll4.add('c');
+ll4.add('d');
+ll4.add('f');
+ll4.add('x');
+ll4.printList();
+kthToLastSol2(ll4.head, 4);
