@@ -5,7 +5,6 @@ Implement an algorith to delete a node in the middle (ie., any node by the first
 
 /*
 Explaination:
-
 */
 
 /*
@@ -13,14 +12,12 @@ Questions:
 1) What to return if LL length is 3 and 4th to last element is asked for?
 2) What is its an empty LL
 3) What to return: the node or the val?
-4)
 */
 
 /*
 Assumption:
 1) Function is passed with just the middle node that is to be deleted
 2) Nothing is returned
-3)
 */
 
 /*
@@ -75,9 +72,6 @@ const delMiddleNodeSol1 = (midNode) => {
 		midNode.next = midNode.next.next;
 	}
 }
-// let n1 = new ListNode();
-// delMiddleNodeSol1(n1);
-// console.log(n1);
 let n2 = new ListNode(1);
 let ll2 = new LinkedList(n2);
 ll2.add(2);
@@ -95,4 +89,3 @@ ll3.add('d');
 console.log(n3.val)
 delMiddleNodeSol1(ll3.head.next.next);
 ll3.printLL();
-// 3) ('a'->'e'->'c'->'d') Input(node c) => ('a'->'e'->'c'->'d')
