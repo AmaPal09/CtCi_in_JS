@@ -81,10 +81,8 @@ const sumListsSol1 = (inHead1, inHead2) => {
 		}
 		//If this is the digit in the units place, then add sum as the head
 		else {
-			// console.log("else1")
 			sumNode = new LL.ListNode(sumVal);
 			sumHead = sumNode;
-			// sumLL.head = sumNode;
 		}
 	}
 
@@ -93,7 +91,6 @@ const sumListsSol1 = (inHead1, inHead2) => {
 		sumNode.next = new LL.ListNode(sumCarry);
 	}
 
-	// console.log(sumHead);
 	return sumHead;
 }
 console.log("Test1")
@@ -164,4 +161,3 @@ numLL12.add(9);
 console.log(numLL12.printList());
 let resultLL6 = new LL.LinkedList(sumListsSol1(numLL11.head, numLL12.head));
 console.log(resultLL6.printList());
-// 6) 1 + 9->9 => 0->0->1
