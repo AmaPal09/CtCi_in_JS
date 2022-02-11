@@ -161,3 +161,136 @@ numLL12.add(9);
 console.log(numLL12.printList());
 let resultLL6 = new LL.LinkedList(sumListsSol1(numLL11.head, numLL12.head));
 console.log(resultLL6.printList());
+
+
+
+
+//sol2 Using LL
+const sumListsSol2 = (inHead1, inHead2) => {
+	//If only one linkedList contains a number
+	if (inHead1 === null) {
+		return inHead2;
+	}
+	if (inHead2 === null) {
+		return inHead1;
+	}
+
+	//When both LinkedLists contain numbers
+	let sumNode = null;
+	let sumLL = null;
+	let sumVal = 0
+	let sumCarry = 0;
+
+
+	//Get the sum of the numbers
+	while (inHead1 || inHead2) {
+		if (inHead1 && inHead2) {
+			sumVal = inHead1.data + inHead2.data + sumCarry;
+			inHead1 = inHead1.next;
+			inHead2 = inHead2.next;
+		}
+		//If one linkedLists is smaller than the other linkedList
+		else if (inHead1 === null && inHead2 !== null) {
+			sumVal = inHead2.data + sumCarry;
+			inHead2 = inHead2.next;
+		}
+		else if (inHead2 === null && inHead1 !== null) {
+			sumVal = inHead1.data + sumCarry;
+			inHead1 = inHead1.next;
+		}
+
+		//Split the sum in sum & carry if sum has 2 digits
+		if (sumVal > 9) {
+			sumCarry = Math.floor(sumVal/10);
+			sumVal = sumVal % 10;
+		}else {
+			sumCarry = 0
+		}
+
+		//Add sum to the next node
+		if (sumNode) {
+			sumNode.next = new LL.ListNode(sumVal);
+			sumNode = sumNode.next;
+		}
+		//If this is the digit in the units place, then add sum as the head
+		else {
+			sumNode = new LL.ListNode(sumVal);
+			sumLL = new LL.LinkedList(sumNode);
+		}
+	}
+
+	//If after sum of both LLs are completed, if there is a carry remaining,
+	if (sumCarry > 0) {
+		sumNode.next = new LL.ListNode(sumCarry);
+	}
+
+	return sumLL;
+}
+console.log("Test1b")
+let num1b = new LL.ListNode(1);
+let numLL1b = new LL.LinkedList(num1b);
+numLL1b.add(2);
+numLL1b.add(3);
+console.log(numLL1b.printList());
+let num2b = new LL.ListNode(4);
+let numLL2b = new LL.LinkedList(num2b);
+numLL2b.add(5);
+numLL2b.add(6);
+console.log(numLL2b.printList());
+let resultLL1b = sumListsSol2(numLL1b.head, numLL2b.head);
+console.log(resultLL1b.printList());
+
+console.log("Test 2b");
+let numLL3b = new LL.LinkedList();
+console.log(numLL3b.printList());
+let num4b = new LL.ListNode(1);
+let numLL4b = new LL.LinkedList(num4b);
+numLL4b.add(2)
+console.log(numLL4b.printList());
+let resultLL2b = new LL.LinkedList(sumListsSol1(numLL3b.head, numLL4b.head));
+console.log(resultLL2b.printList());
+
+console.log("Test 3b");
+let num5b = new LL.ListNode(0);
+let numLL5b = new LL.LinkedList(num5b);
+console.log(numLL5b.printList());
+let num6b = new LL.ListNode(1);
+let numLL6b = new LL.LinkedList(num6b);
+numLL6b.add(2)
+console.log(numLL6b.printList());
+let resultLL3b = new LL.LinkedList(sumListsSol1(numLL5b.head, numLL6b.head));
+console.log(resultLL3b.printList());
+
+console.log("Test 4b");
+let num7b = new LL.ListNode(9);
+let numLL7b = new LL.LinkedList(num7b);
+numLL7b.add(9);
+console.log(numLL7b.printList());
+let num8b = new LL.ListNode(1);
+let numLL8b = new LL.LinkedList(num8b);
+console.log(numLL8b.printList());
+let resultLL4b = new LL.LinkedList(sumListsSol1(numLL7b.head, numLL8b.head));
+console.log(resultLL4b.printList());
+
+console.log("Test 5b");
+let num9b = new LL.ListNode(9);
+let numLL9b = new LL.LinkedList(num9b);
+numLL9b.add(9);
+console.log(numLL9b.printList());
+let num10b = new LL.ListNode(9);
+let numLL10b = new LL.LinkedList(num10b);
+numLL10b.add(9);
+console.log(numLL10b.printList());
+let resultLL5b = new LL.LinkedList(sumListsSol1(numLL9b.head, numLL10b.head));
+console.log(resultLL5b.printList());
+
+console.log("Test 6b");
+let num11b = new LL.ListNode(1);
+let numLL11b = new LL.LinkedList(num11b);
+console.log(numLL11b.printList());
+let num12b = new LL.ListNode(9);
+let numLL12b = new LL.LinkedList(num12b);
+numLL12b.add(9);
+console.log(numLL12b.printList());
+let resultLL6b = new LL.LinkedList(sumListsSol1(numLL11b.head, numLL12b.head));
+console.log(resultLL6b.printList());
