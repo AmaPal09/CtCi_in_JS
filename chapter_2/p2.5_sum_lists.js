@@ -17,7 +17,7 @@ Questions:
 Assumption:
 1) LL contains only non -ve numbers
 2) LL contains atleast 0 or null.
-3)
+3) Both LL contain only numbers.
 */
 
 /*
@@ -25,4 +25,68 @@ Example:
 1)  + 1->2 => 1->2
 2) 0 + 1->2 => 1->2
 3) 1->2-3 + 4->5->6 => 5->7->9
+4) 9->9 + 1 => 0->0->1
+5) 9->9 + 9->9 => 8->9->1
 */
+
+const LL = require("./linkedList.js");
+
+//sol1
+const sumListsSol1 = (inHead1, inHead2) => {
+	//If only one linkedList contains a number
+	if (inHead1 === null) {
+		return inHead2;
+	}
+	if (inHead2 === null) {
+		return inHead1;
+	}
+
+	//When both LinkedLists contain numbers
+	let sumNode = null;
+	let sumHead = null;
+	let sumVal = 0;
+
+
+	//Get the sum of the numbers
+	while (inHead1 && inHead2) {
+		sumVal = inHead1.data + inHead2.data + sumVal;
+		if (sumNode) {
+			sumNode.next = new LL.ListNode(sumVal);
+			sumNode = sumNode.next;
+		}
+		else {
+			console.log("else1")
+			sumNode = new LL.ListNode(sumVal);
+			sumHead = sumNode;
+			// sumLL.head = sumNode;
+		}
+		inHead1 = inHead1.next;
+		inHead2 = inHead2.next;
+	}
+
+
+	//If one linkedLists is smaller than the other linkedList
+	if (inHead1 === null && inHead2 !== null) {
+		sumNode.next = inHead1;
+	}
+	else if (inHead2 === null && inHead1 !== null) {
+		sumNode.next = inHead2;
+	}
+
+	console.log(sumHead);
+	return sumHead;
+}
+
+let num1 = new LL.ListNode(1);
+let numLL1 = new LL.LinkedList(num1);
+numLL1.add(2);
+numLL1.add(3);
+console.log(numLL1.printList());
+let num2 = new LL.ListNode(4);
+let numLL2 = new LL.LinkedList(num2);
+numLL2.add(5);
+numLL2.add(6);
+console.log(numLL2.printList());
+
+let resultLL = sumListsSol1(numLL1.head, numLL2.head);
+// console.log(resultLL.printList());
