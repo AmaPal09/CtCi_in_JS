@@ -108,10 +108,6 @@ const checkPermSol3 = (str1, str2) => {
 
 
 }
-// console.log(checkPermSol3("god", "dog"));
-// console.log(checkPermSol3("god ", "dog"));
-// console.log(checkPermSol3("aba aa", "ab aaa"));
-// console.log(checkPermSol3("abg aa", "ab aaa"));
 //Space O(n)/ or O(1) as it will always be 128/256 or 2^21.
 //Time 2 * O(n) = O(n)
 
