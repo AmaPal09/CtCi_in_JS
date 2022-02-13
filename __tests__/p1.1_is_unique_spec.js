@@ -11,9 +11,14 @@ describe("Validate sol1 for is unique problem", () => {
 		expect(isUniqueSol1(str1)).toBeFalsy();
 	});
 
-	test("Sol returns true when input is blank", () => {
-		let str1 = "";
+	test("Sol returns true when input contains 1 blank", () => {
+		let str1 = " ";
 		expect(isUniqueSol1(str1)).toBeTruthy();
+	});
+
+	test("Sol returns false when input contains multiple blanks", () => {
+		let str1 = "   ";
+		expect(isUniqueSol1(str1)).toBeFalsy();
 	});
 
 	test("Sol returns false when input is null/undefined", () => {
@@ -26,4 +31,8 @@ describe("Validate sol1 for is unique problem", () => {
 		expect(isUniqueSol1(str1)).toBeFalsy();
 	});
 
+	test("Sol returns false when input is empty", () => {
+		let str1 = "";
+		expect(isUniqueSol1(str1)).toBeFalsy();
+	});
 });
