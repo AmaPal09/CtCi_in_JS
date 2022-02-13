@@ -20,6 +20,14 @@ Examples:
 
 //Sol1
 const urlifySol1 = (url, trueLength) => {
+	if (!url) {
+		return "";
+	}
+
+	if (url.length < 1) {
+		return "";
+	}
+
 	let urlArray = url.trim().split("");
 	for (let i = 0; i < urlArray.length; i++) {
 		if (urlArray[i] === " ") {
@@ -28,7 +36,7 @@ const urlifySol1 = (url, trueLength) => {
 	}
 	return urlArray.join("");
 }
-console.log(urlifySol1("Mr John Smith  ", 13));
+console.log(urlifySol1("Mr John Smith    ", 13));
 console.log(urlifySol1("Hi there, Sam     ", 13));
 //Issues: only one of 2 inputs used
 //no idea of the processing time for trip, split at backend
@@ -51,6 +59,15 @@ const countOfChar = (inStr, start, end, target) => {
 
 //Sol2
 const urlifySol2 = (url, trueLength) => {
+
+	if (!url) {
+		return "";
+	}
+
+	if (url.length < 1) {
+		return "";
+	}
+
 	let numOfSpaces = countOfChar(url, 0, trueLength, " ");
 	//This would be the new length of the string
 	//This also eliminates possibility of trailing spaces after trueLength
@@ -148,3 +165,6 @@ console.log(urlifySol2("Hi there, Sam     ", 13));
 // }
 // console.log(urlifySol3("Mr John Smith  ", 13));
 // console.log(urlifySol3("Hi there, Sam     ", 13));
+
+
+module.exports = {urlifySol1, urlifySol2}
