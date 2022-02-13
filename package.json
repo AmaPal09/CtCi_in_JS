@@ -1,0 +1,26 @@
+{
+  "name": "ctci_edition6_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^27.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmaPal09/CtCi_in_JS.git"
+  },
+  "author": "Amarja Palekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmaPal09/CtCi_in_JS/issues"
+  },
+  "homepage": "https://github.com/AmaPal09/CtCi_in_JS#readme"
+}
