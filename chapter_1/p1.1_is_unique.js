@@ -37,6 +37,10 @@ ASCII subset of extendeed ASCII subset of Unicode.
 Interesting article/info: https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode
 */
 const isUniqueSol2 = (inStr) => {
+	if (!inStr) {
+		return false;
+	}
+
 	//Assumption inStr is made up of ASCII characters alone
 	//There are only 128 ASCII characters so if the string length is bigger than 128, then it has duplicates
 
@@ -110,4 +114,4 @@ This would be O(n^2) time and O(1)space
 // console.log(isUniqueSol4('abcd'));
 // console.log(isUniqueSol4('abca'));
 
-module.exports = {isUniqueSol1};
+module.exports = {isUniqueSol1, isUniqueSol2};
