@@ -36,8 +36,6 @@ const urlifySol1 = (url, trueLength) => {
 	}
 	return urlArray.join("");
 }
-console.log(urlifySol1("Mr John Smith    ", 13));
-console.log(urlifySol1("Hi there, Sam     ", 13));
 //Issues: only one of 2 inputs used
 //no idea of the processing time for trip, split at backend
 //Space O(n)
@@ -93,8 +91,6 @@ const urlifySol2 = (url, trueLength) => {
 
 	return urlArray.join("");
 }
-console.log(urlifySol2("Mr John Smith  ", 13));
-console.log(urlifySol2("Hi there, Sam     ", 13));
 
 //Sol4
 //This is a python solution. String index replacement wont happen in JS.
