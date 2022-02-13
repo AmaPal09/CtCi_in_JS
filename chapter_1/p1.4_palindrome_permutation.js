@@ -79,9 +79,6 @@ const isPalPermSol1 = (inStr) => {
 }
 //Space: for char mapping object and for char set
 //Time: O(N)
-// console.log(isPalPermSol1('Tact Coa'));
-// console.log(isPalPermSol1('Tact boa'));
-// console.log(isPalPermSol1('a11a'));
 
 
 //Helper function
@@ -154,9 +151,6 @@ const isPalPermSol2 = (inStr) => {
 	let charTable = buildCharFreqTbl(inStr);
 	return checkForOddChars(charTable);
 }
-// console.log(isPalPermSol2('Tact Coa'));
-// console.log(isPalPermSol2('Tact boa'));
-// console.log(isPalPermSol2('a11a'));
 
 
 //Sol3
@@ -188,9 +182,5 @@ const isPalPermSol3 = (inStr) => {
 
 	return oddCount <= 1;
 }
-console.log(isPalPermSol3('Tact Coa'));
-console.log(isPalPermSol3('Tact boa'));
-console.log(isPalPermSol3('a11a'));
-
 
 module.exports = {isPalPermSol1, isPalPermSol2, isPalPermSol3};
