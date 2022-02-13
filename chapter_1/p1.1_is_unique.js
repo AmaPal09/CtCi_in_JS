@@ -20,8 +20,6 @@ const isUniqueSol1 = (inStr) => {
 	}
 	return true;
 }
-console.log(isUniqueSol1('abcd'));
-console.log(isUniqueSol1('abca'));
 //Time complexity O(n),
 //Space complexity O(c) c = const max can be 128/256/2^21.
 
@@ -108,3 +106,5 @@ This would be O(n^2) time and O(1)space
 // }
 // console.log(isUniqueSol4('abcd'));
 // console.log(isUniqueSol4('abca'));
+
+module.exports = {isUniqueSol1};
