@@ -32,6 +32,15 @@ const alphabetSet = new Set( ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
 
 //Sol1
 const isPalPermSol1 = (inStr) => {
+	if (!inStr) {
+		return false;
+	}
+
+	if (inStr.length < 1) {
+		return false;
+	}
+
+
 	let strArray = [];
 
 	//Because we have to ignore all non-letter chars & case does not matter
@@ -70,9 +79,9 @@ const isPalPermSol1 = (inStr) => {
 }
 //Space: for char mapping object and for char set
 //Time: O(N)
-console.log(isPalPermSol1('Tact Coa'));
-console.log(isPalPermSol1('Tact boa'));
-console.log(isPalPermSol1('a11a'));
+// console.log(isPalPermSol1('Tact Coa'));
+// console.log(isPalPermSol1('Tact boa'));
+// console.log(isPalPermSol1('a11a'));
 
 
 //Helper function
@@ -133,16 +142,33 @@ const checkForOddChars = (table) => {
 
 //Sol2
 const isPalPermSol2 = (inStr) => {
+
+	if (!inStr) {
+		return false;
+	}
+
+	if (inStr.length < 1) {
+		return false;
+	}
+
 	let charTable = buildCharFreqTbl(inStr);
 	return checkForOddChars(charTable);
 }
-console.log(isPalPermSol2('Tact Coa'));
-console.log(isPalPermSol2('Tact boa'));
-console.log(isPalPermSol2('a11a'));
+// console.log(isPalPermSol2('Tact Coa'));
+// console.log(isPalPermSol2('Tact boa'));
+// console.log(isPalPermSol2('a11a'));
 
 
 //Sol3
 const isPalPermSol3 = (inStr) => {
+	if (!inStr) {
+		return false;
+	}
+
+	if (inStr.length < 1) {
+		return false;
+	}
+
 	let freqTable = Array(("z".charCodeAt(0) - "a".charCodeAt(0))+1).fill(0);
 	let oddCount = 0;
 
