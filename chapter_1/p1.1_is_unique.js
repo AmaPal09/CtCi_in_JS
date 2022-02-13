@@ -67,8 +67,6 @@ const isUniqueSol2 = (inStr) => {
 
 	return true;
 }
-console.log(isUniqueSol2('abcd'));
-console.log(isUniqueSol2('abca'));
 //Time complexity O(n) or can be called as O(1) as no more than 128 iterations possible,
 //Space complexity O(c) c = const max can be 128/256/2^21 size of char set.
 
