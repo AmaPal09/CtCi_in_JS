@@ -24,7 +24,7 @@ const urlifySol1 = (url, trueLength) => {
 		return "";
 	}
 
-	if (url.length < 1) {
+	if (url.length < 1 || trueLength < 1) {
 		return "";
 	}
 
@@ -62,7 +62,7 @@ const urlifySol2 = (url, trueLength) => {
 		return "";
 	}
 
-	if (url.length < 1) {
+	if (url.length < 1 || trueLength < 1) {
 		return "";
 	}
 

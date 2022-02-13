@@ -32,7 +32,7 @@ const alphabetSet = new Set( ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
 
 //Sol1
 const isPalPermSol1 = (inStr) => {
-	strArray = [];
+	let strArray = [];
 
 	//Because we have to ignore all non-letter chars & case does not matter
 	for (let i = 0; i < inStr.length; i++) {
@@ -101,7 +101,7 @@ const getCharNumber = (char) => {
 	const zNum = "z".charCodeAt(0);
 
 	//Case insensitive
-	charNum = char.toLowerCase().charCodeAt(0);
+	let charNum = char.toLowerCase().charCodeAt(0);
 
 	if (charNum <= zNum && charNum >= aNum) {
 		return charNum - aNum;
@@ -165,3 +165,6 @@ const isPalPermSol3 = (inStr) => {
 console.log(isPalPermSol3('Tact Coa'));
 console.log(isPalPermSol3('Tact boa'));
 console.log(isPalPermSol3('a11a'));
+
+
+module.exports = {isPalPermSol1, isPalPermSol2, isPalPermSol3};
