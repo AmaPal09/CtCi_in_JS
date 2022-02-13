@@ -6,6 +6,9 @@ What if you cannot use additional data structure.
 
 //Sol1 using object
 const isUniqueSol1 = (inStr) => {
+	if (!inStr) {
+		return false;
+	}
 	let charObj = {}
 	for (let i = 0; i < inStr.length; i++ ) {
 		// if (inStr[i] in charObj) {
