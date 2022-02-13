@@ -71,8 +71,15 @@ describe("Validate sol2 for is unique problem", () => {
 		expect(isUniqueSol2(str1)).toBeFalsy();
 	});
 
-	test("So2 returns false when input is empty", () => {
+	test("Sol2 returns false when input is empty", () => {
 		let str1 = "";
 		expect(isUniqueSol2(str1)).toBeFalsy();
 	});
+
+
+	test("Sol2 returns false when input has more than 128 chars", () => {
+		let str1 = "1234567890 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()-=_+[]{}|;:,./<>?`~ 1234567890 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()-=_+[]{}|;:,./<>?`~";
+		expect(isUniqueSol2(str1)).toBeFalsy();
+	});
+
 });

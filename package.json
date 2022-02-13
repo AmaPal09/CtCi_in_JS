@@ -11,7 +11,7 @@
     "@babel/preset-env": "^7.16.11"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",

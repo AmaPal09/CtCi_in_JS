@@ -51,8 +51,16 @@ describe("Validate sol1 urlifys the provided input string", () => {
 	});
 
 	test("Sol1 discards empty input string when urlifying it", () => {
-		let str1 = "";
+		let str1 = "a";
 		let tLength = 0;
+		let url = urlifySol1(str1, tLength);
+		console.log(url);
+		expect(url).toBe("");
+	});
+
+	test("Sol1 discards empty input string when urlifying it", () => {
+		let str1 = "";
+		let tLength = 1;
 		let url = urlifySol1(str1, tLength);
 		console.log(url);
 		expect(url).toBe("");
@@ -111,8 +119,16 @@ describe("Validate sol2 urlifys the provided input string", () => {
 	});
 
 	test("Sol2 discards empty input string when urlifying it", () => {
-		let str2 = "";
+		let str2 = "a";
 		let tLength = 0;
+		let url = urlifySol2(str2, tLength);
+		console.log(url);
+		expect(url).toBe("");
+	});
+
+	test("Sol2 discards empty input string when urlifying it", () => {
+		let str2 = "";
+		let tLength = 1;
 		let url = urlifySol2(str2, tLength);
 		console.log(url);
 		expect(url).toBe("");

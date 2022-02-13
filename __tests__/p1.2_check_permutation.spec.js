@@ -51,6 +51,18 @@ describe("Validate sol1 to see if it can identify strings that are permutations 
 		let str2 = "ab";
 		expect(checkPermSol1(str1, str2)).toBeFalsy();
 	});
+
+	test("Sol1 returns false when both the strings contain same characters in different numbers", () => {
+		let str1 = "abaaa";
+		let str2 = "abcaa";
+		expect(checkPermSol1(str1, str2)).toBeFalsy();
+	});
+
+	test("Sol1 returns false when one of the strings is undefined", () => {
+		let str1 = undefined;
+		let str2 = "ab";
+		expect(checkPermSol1(str1, str2)).toBeFalsy();
+	});
 });
 
 
@@ -103,6 +115,18 @@ describe("Validate sol1 to see if it can identify strings that are permutations 
 		let str2 = "ab";
 		expect(checkPermSol2(str1, str2)).toBeFalsy();
 	});
+
+	test("Sol2 returns false when both the strings contain same characters in different numbers", () => {
+		let str1 = "abaaa";
+		let str2 = "abcaa";
+		expect(checkPermSol2(str1, str2)).toBeFalsy();
+	});
+
+	test("Sol2 returns false when one of the strings is undefined", () => {
+		let str1 = undefined;
+		let str2 = "ab";
+		expect(checkPermSol2(str1, str2)).toBeFalsy();
+	});
 });
 
 
@@ -152,6 +176,18 @@ describe("Validate sol3 to see if it can identify strings that are permutations 
 
 	test("Sol3 returns false when one of the strings is null", () => {
 		let str1 = null;
+		let str2 = "ab";
+		expect(checkPermSol3(str1, str2)).toBeFalsy();
+	});
+
+	test("Sol3 returns false when both the strings contain same characters in different numbers", () => {
+		let str1 = "abaaa";
+		let str2 = "abcaa";
+		expect(checkPermSol3(str1, str2)).toBeFalsy();
+	});
+
+	test("Sol3 returns false when one of the strings is undefined", () => {
+		let str1 = undefined;
 		let str2 = "ab";
 		expect(checkPermSol3(str1, str2)).toBeFalsy();
 	});
