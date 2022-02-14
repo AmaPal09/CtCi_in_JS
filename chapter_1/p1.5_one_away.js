@@ -69,20 +69,23 @@ const oneInsertAway = (smallerStr, biggerStr) => {
 
 //Sol1
 const oneAwaySol1 = (inStr1, inStr2) => {
-	if (inStr1.length == inStr2.length) {
+
+	if (inStr1 === null || inStr2 === null || inStr1 === undefined || inStr2 === undefined) {
+		return false;
+	}
+
+	if (inStr1.length === inStr2.length) {
 		return oneReplaceAway(inStr1, inStr2);
 	}
-	else if ((inStr1.length < inStr2.length) && (inStr1.length+1 == inStr2.length)) {
+	else if ((inStr1.length < inStr2.length) && (inStr1.length+1 === inStr2.length)) {
 		return oneInsertAway(inStr1, inStr2);
 	}
-	else if ((inStr2.length < inStr1.length) && (inStr2.length+1 == inStr1.length)) {
+	else if ((inStr2.length < inStr1.length) && (inStr2.length+1 === inStr1.length)) {
 		return oneInsertAway(inStr2, inStr1);
 	}
 	else {
 		return false;
 	}
 }
-console.log(oneAwaySol1('pale', 'bale'));
-console.log(oneAwaySol1('pale', 'pales'));
-console.log(oneAwaySol1('pale', 'pal'));
-console.log(oneAwaySol1('pale', 'bales'));
+
+module.exports = {oneAwaySol1};
