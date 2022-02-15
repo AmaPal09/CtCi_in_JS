@@ -62,11 +62,6 @@ const strCompressSol1 = (inStr) => {
 }
 //Space O(n) additional array of atleast string length
 //Time: O(n)
-console.log(strCompressSol1("aabcccccaaa")); //a2b1c5a3
-console.log(strCompressSol1("abcd")); // abcd
-console.log(strCompressSol1("aabbccc")); // a2b2c1
-console.log(strCompressSol1("")); // ""
-console.log(strCompressSol1("aaAAAbCCcccaaAAA")); // a2A3b1C2c3a2A3
 
 
 // Sol2
@@ -107,10 +102,5 @@ const strCompressSol2 = (inStr) => {
 }
 //Space O(n) for compressed String
 //Time looks like O(n) but is acctually O(n^2) because string concatination O(n) time.
-console.log(strCompressSol2("aabcccccaaa")); //a2b1c5a3
-console.log(strCompressSol2("abcd")); // abcd
-console.log(strCompressSol2("aabbccc")); // a2b2c1
-console.log(strCompressSol2("")); // ""
-console.log(strCompressSol2("aaAAAbCCcccaaAAA")); // a2A3b1C2c3a2A3
 
 module.exports = {strCompressSol1, strCompressSol2};
