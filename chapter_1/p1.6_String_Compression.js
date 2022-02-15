@@ -23,6 +23,9 @@ Explanation
 */
 
 const strCompressSol1 = (inStr) => {
+	if (inStr === null || inStr === undefined) {
+		return "";
+	}
 
 	if ((inStr == "") || (inStr == " ")) {
 		return inStr
@@ -68,6 +71,11 @@ console.log(strCompressSol1("aaAAAbCCcccaaAAA")); // a2A3b1C2c3a2A3
 
 // Sol2
 const strCompressSol2 = (inStr) => {
+
+	if (inStr === null || inStr === undefined) {
+		return "";
+	}
+
 	if (inStr.length < 1) {
 		return inStr;
 	}
@@ -104,3 +112,5 @@ console.log(strCompressSol2("abcd")); // abcd
 console.log(strCompressSol2("aabbccc")); // a2b2c1
 console.log(strCompressSol2("")); // ""
 console.log(strCompressSol2("aaAAAbCCcccaaAAA")); // a2A3b1C2c3a2A3
+
+module.exports = {strCompressSol1, strCompressSol2};
