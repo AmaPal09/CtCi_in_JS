@@ -6,7 +6,6 @@ describe("Validate sol1 urlifys the provided input string", () => {
 		let str1 = "Mr John Smith    ";
 		let tLength = 13;
 		let url = urlifySol1(str1, tLength);
-		console.log(url);
 		expect(url.length).toBe(str1.length);
 	});
 
@@ -14,7 +13,6 @@ describe("Validate sol1 urlifys the provided input string", () => {
 		let str1 = "Mr John Smith      ";
 		let tLength = 13;
 		let url = urlifySol1(str1, tLength);
-		console.log(url);
 		expect(url[url.length-1]).toBe(str1[tLength-1]);
 	});
 
@@ -22,7 +20,6 @@ describe("Validate sol1 urlifys the provided input string", () => {
 		let str1 = " ";
 		let tLength = 1;
 		let url = urlifySol1(str1, tLength);
-		console.log(url);
 		expect(url).toMatch("");
 	});
 
@@ -30,7 +27,6 @@ describe("Validate sol1 urlifys the provided input string", () => {
 		let str1 = "Mr John Smith    ";
 		let tLength = 13;
 		let url = urlifySol1(str1, tLength);
-		console.log(url);
 		expect(url).toMatch("Mr%20John%20Smith");
 	});
 
@@ -38,7 +34,6 @@ describe("Validate sol1 urlifys the provided input string", () => {
 		let str1 = null;
 		let tLength = 1;
 		let url = urlifySol1(str1, tLength);
-		console.log(url);
 		expect(url).toBe("");
 	});
 
@@ -46,7 +41,6 @@ describe("Validate sol1 urlifys the provided input string", () => {
 		let str1 = undefined;
 		let tLength = 1;
 		let url = urlifySol1(str1, tLength);
-		console.log(url);
 		expect(url).toBe("");
 	});
 
@@ -54,7 +48,6 @@ describe("Validate sol1 urlifys the provided input string", () => {
 		let str1 = "a";
 		let tLength = 0;
 		let url = urlifySol1(str1, tLength);
-		console.log(url);
 		expect(url).toBe("");
 	});
 
@@ -62,7 +55,6 @@ describe("Validate sol1 urlifys the provided input string", () => {
 		let str1 = "";
 		let tLength = 1;
 		let url = urlifySol1(str1, tLength);
-		console.log(url);
 		expect(url).toBe("");
 	});
 });
@@ -74,7 +66,6 @@ describe("Validate sol2 urlifys the provided input string", () => {
 		let str2 = "Mr John Smith    ";
 		let tLength = 13;
 		let url = urlifySol2(str2, tLength);
-		console.log(url);
 		expect(url.length).toBe(str2.length);
 	});
 
@@ -82,7 +73,6 @@ describe("Validate sol2 urlifys the provided input string", () => {
 		let str2 = "Mr John Smith      ";
 		let tLength = 13;
 		let url = urlifySol2(str2, tLength);
-		console.log(url);
 		expect(url[url.length-1]).toBe(str2[tLength-1]);
 	});
 
@@ -90,7 +80,6 @@ describe("Validate sol2 urlifys the provided input string", () => {
 		let str2 = " ";
 		let tLength = 1;
 		let url = urlifySol2(str2, tLength);
-		console.log(url);
 		expect(url).toMatch("");
 	});
 
@@ -98,7 +87,6 @@ describe("Validate sol2 urlifys the provided input string", () => {
 		let str2 = "Mr John Smith    ";
 		let tLength = 13;
 		let url = urlifySol2(str2, tLength);
-		console.log(url);
 		expect(url).toMatch("Mr%20John%20Smith");
 	});
 
@@ -106,7 +94,6 @@ describe("Validate sol2 urlifys the provided input string", () => {
 		let str2 = null;
 		let tLength = 1;
 		let url = urlifySol2(str2, tLength);
-		console.log(url);
 		expect(url).toBe("");
 	});
 
@@ -114,7 +101,6 @@ describe("Validate sol2 urlifys the provided input string", () => {
 		let str2 = undefined;
 		let tLength = 1;
 		let url = urlifySol2(str2, tLength);
-		console.log(url);
 		expect(url).toBe("");
 	});
 
@@ -122,7 +108,6 @@ describe("Validate sol2 urlifys the provided input string", () => {
 		let str2 = "a";
 		let tLength = 0;
 		let url = urlifySol2(str2, tLength);
-		console.log(url);
 		expect(url).toBe("");
 	});
 
@@ -130,7 +115,6 @@ describe("Validate sol2 urlifys the provided input string", () => {
 		let str2 = "";
 		let tLength = 1;
 		let url = urlifySol2(str2, tLength);
-		console.log(url);
 		expect(url).toBe("");
 	});
 });
