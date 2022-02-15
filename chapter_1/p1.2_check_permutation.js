@@ -50,7 +50,7 @@ const checkPermSol1 = (str1, str2) => {
 //Time O(n logn) because of time it takes to sort
 
 
-console.log(" ")
+// console.log(" ")
 //Sol2
 const checkPermSol2 = (str1, str2) => {
 	if (str1 === null || str1 === undefined || str2 === null || str2 === undefined){
@@ -69,7 +69,7 @@ const checkPermSol2 = (str1, str2) => {
 //Time O(n logn) because of time it takes to sort
 
 
-console.log("");
+// console.log("");
 /*
 For a more efficient solution, where time is O(n), we can use the understanding that if for 2 words, if the char count is the same, its a permutation.
 Use this property, compare char counts of the 2 strings.
