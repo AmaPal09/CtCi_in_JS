@@ -36,6 +36,11 @@ Example:
 
 //Sol1
 const rotateMatrixSol1 = (sqMatArray) => {
+
+	if (sqMatArray === null || sqMatArray === undefined) {
+		return sqMatArray;
+	}
+
 	if ((sqMatArray.length == 0) || (sqMatArray[0].length == 0) || (sqMatArray.length !== sqMatArray[0].length)) {
 		return sqMatArray;
 	}
@@ -67,11 +72,13 @@ const rotateMatrixSol1 = (sqMatArray) => {
 	return sqMatArray;
 }
 
-console.log(rotateMatrixSol1([[1]]));
-console.log(rotateMatrixSol1([[]]));
-console.log(rotateMatrixSol1([[ , ], [ , ]]));
-console.log(rotateMatrixSol1([[1,2,3], [4,5,6], [7,8,9]]));
-console.log(rotateMatrixSol1([]));
-console.log(rotateMatrixSol1([[1], [2,3]]));
+// console.log(rotateMatrixSol1([[1]]));
+// console.log(rotateMatrixSol1([[]]));
+// console.log(rotateMatrixSol1([[ , ], [ , ]]));
+// console.log(rotateMatrixSol1([[1,2,3], [4,5,6], [7,8,9]]));
+// console.log(rotateMatrixSol1([]));
+// console.log(rotateMatrixSol1([[1], [2,3]]));
 //Space O(1) as it is inplace
 //Time O(n) as every cell of the matrix is handled
+
+module.exports = {rotateMatrixSol1}
