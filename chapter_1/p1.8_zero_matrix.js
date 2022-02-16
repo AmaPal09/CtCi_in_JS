@@ -82,7 +82,7 @@ const zeroMatSol1 = (inMatrix) => {
 
 	return inMatrix;
 }
-console.log(zeroMatSol1([[1,2,3,4,5],[6,7,8,9,10],[11,12,0,14,15]]));
+// console.log(zeroMatSol1([[1,2,3,4,5],[6,7,8,9,10],[11,12,0,14,15]]));
 
 //Sol2 Refactored sol1-
 //Helper function
@@ -144,6 +144,11 @@ const zerofyCol = (inMat, colsWithZero) => {
 
 
 const zeroMatSol2 = (inMatrix) => {
+
+	if (inMatrix === null || inMatrix === undefined) {
+		return [];
+	}
+
 	if (inMatrix.length === 0 ) {
 		return inMatrix;
 	}
@@ -160,6 +165,6 @@ const zeroMatSol2 = (inMatrix) => {
 
 	return inMatrix;
 }
-console.log(zeroMatSol2([[1,2,3,4,5],[6,7,8,9,10],[11,12,0,14,15]]));
+// console.log(zeroMatSol2([[1,2,3,4,5],[6,7,8,9,10],[11,12,0,14,15]]));
 
 module.exports = {zeroMatSol1, zeroMatSol2};

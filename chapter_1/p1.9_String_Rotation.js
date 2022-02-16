@@ -42,6 +42,11 @@ const isSubstring = (s1, s2) => {
 
 //Sol1
 const strRotSol1 = (str1, str2) => {
+
+	if (str1 === null || str2 === null || str1 === undefined || str2 === undefined) {
+		return false;
+	}
+
 	if ((str1.length != str2.length) || ((str1.length == 0)||(str2.length == 0))) {
 		return false;
 	}
@@ -49,8 +54,10 @@ const strRotSol1 = (str1, str2) => {
 	let str1str1 = str1 + str1;
 	return isSubstring(str1str1, str2);
 }
-console.log(strRotSol1("", ""));
-console.log(strRotSol1(" ", " "));
-console.log(strRotSol1(" ", "a"));
-console.log(strRotSol1("aabb", "aab"));
-console.log(strRotSol1("waterbottle", "erbottlewat"));
+// console.log(strRotSol1("", ""));
+// console.log(strRotSol1(" ", " "));
+// console.log(strRotSol1(" ", "a"));
+// console.log(strRotSol1("aabb", "aab"));
+// console.log(strRotSol1("waterbottle", "erbottlewat"));
+
+module.exports = {strRotSol1};
