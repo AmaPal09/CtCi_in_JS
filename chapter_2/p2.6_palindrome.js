@@ -108,10 +108,40 @@ const palindromeSol1 = (head) => {
 		return false;
 	}
 
-	printLL(head);
+	// printLL(head);
 	let rhead = reverseLL(head);
-	printLL(rhead);
+	// printLL(rhead);
 	return isEqualLL(head, rhead);
 }
 
-module.exports = {palindromeSol1, ListNode, LinkedList};
+const palindromeSol2 = (head) => {
+	if (head === null || head === undefined) {
+		return false;
+	}
+
+	let stackNode = [];
+	let fastPtr = head;
+	let slowPtr = head;
+
+	while(fastPtr != null && fastPtr.next != null) {
+		stackNode.push(slowPtr.val);
+		fastPtr = fastPtr.next.next;
+		slowPtr = slowPtr.next;
+	}
+
+	if (fastPtr != null) {
+		slowPtr = slowPtr.next;
+	}
+
+	while(slowPtr !== null) {
+		let val = stackNode.pop();
+		if (slowPtr.val !== val) {
+			return false
+		}
+		slowPtr = slowPtr.next;
+	}
+
+	return true;
+}
+
+module.exports = {palindromeSol1, palindromeSol2, ListNode, LinkedList};
