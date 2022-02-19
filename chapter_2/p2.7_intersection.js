@@ -114,8 +114,8 @@ const intersectionSol1 = (head1, head2) => {
 		return null;
 	}
 
-	shorter = result1.size < result2.size ? head1 : head2;
-	longer = result1.size < result2.size ? head2: head1;
+	let shorter = result1.size < result2.size ? head1 : head2;
+	let longer = result1.size < result2.size ? head2: head1;
 
 	longer = getKthNode(longer, Math.abs(result1.size - result2.size));
 
@@ -127,27 +127,6 @@ const intersectionSol1 = (head1, head2) => {
 
 	return longer;
 }
-
-let n1 = new ListNode(3);
-let n2 = new ListNode(1);
-let n3 = new ListNode(5);
-let n4 = new ListNode(9);
-let n5 = new ListNode(7);
-let n6 = new ListNode(2);
-let n7 = new ListNode(1);
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
-n4.next = n5;
-n5.next = n6;
-n6.next = n7;
-console.log(printLL(n1));
-let m1 = new ListNode(4);
-let m2 = new ListNode(6);
-m1.next = m2;
-m2.next = n5;
-console.log(printLL(m1));
-console.log(intersectionSol1(n1, m1));
 
 let p1 = new ListNode(3);
 let p2 = new ListNode(1);
@@ -174,3 +153,5 @@ q3.next = q4;
 q4.next = q5;
 console.log(printLL(q1));
 console.log(intersectionSol1(p1, q1));
+
+module.exports = {intersectionSol1, ListNode, LinkedList, printLL};
