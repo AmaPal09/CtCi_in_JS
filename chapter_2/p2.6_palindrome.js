@@ -69,7 +69,7 @@ const printLL = (head) => {
 		listArr.push(curr.val);
 		curr = curr.next;
 	}
-	return console.log(listArr.join("->"));
+	return listArr.join("->");
 }
 
 //Helper function
@@ -108,9 +108,9 @@ const palindromeSol1 = (head) => {
 		return false;
 	}
 
-	// printLL(head);
+	// console.log(printLL(head));
 	let rhead = reverseLL(head);
-	// printLL(rhead);
+	// console.log(printLL(rhead));
 	return isEqualLL(head, rhead);
 }
 
@@ -144,4 +144,4 @@ const palindromeSol2 = (head) => {
 	return true;
 }
 
-module.exports = {palindromeSol1, palindromeSol2, ListNode, LinkedList};
+module.exports = {palindromeSol1, palindromeSol2, ListNode, LinkedList, printLL, };
