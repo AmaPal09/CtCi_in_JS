@@ -55,4 +55,20 @@ describe("Validate sol1 returns intersecting node", () => {
 			console.log(printLL(p1));
 			expect(intersectionSol1(p1, q1)).toBe(null);
 	});
+
+	test("Validate Sol1 returns null when no intersecting node found", () => {
+			let q1 = new ListNode(4);
+			let q2 = new ListNode(6);
+			let q3 = new ListNode(7);
+			let q4 = new ListNode(2);
+			let q5 = new ListNode(1);
+			q1.next = q2;
+			q2.next = q3;
+			q3.next = q4;
+			q4.next = q5;
+			console.log(printLL(q1));
+			let p1 = new ListNode(null);
+			console.log(printLL(p1));
+			expect(intersectionSol1(p1, q1)).toBe(null);
+	});
 });
