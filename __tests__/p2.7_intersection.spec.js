@@ -19,12 +19,12 @@ describe("Validate sol1 returns intersecting node", () => {
 			n4.next = n5;
 			n5.next = n6;
 			n6.next = n7;
-			console.log(printLL(n1));
+			// console.log(printLL(n1));
 			let m1 = new ListNode(4);
 			let m2 = new ListNode(6);
 			m1.next = m2;
 			m2.next = n5;
-			console.log(printLL(m1));
+			// console.log(printLL(m1));
 			expect(intersectionSol1(n1, m1)).toBe(n5);
 	});
 
@@ -38,7 +38,7 @@ describe("Validate sol1 returns intersecting node", () => {
 			q2.next = q3;
 			q3.next = q4;
 			q4.next = q5;
-			console.log(printLL(q1));
+			// console.log(printLL(q1));
 			let p1 = new ListNode(3);
 			let p2 = new ListNode(1);
 			let p3 = new ListNode(5);
@@ -52,7 +52,7 @@ describe("Validate sol1 returns intersecting node", () => {
 			p4.next = p5;
 			p5.next = p6;
 			p6.next = p7;
-			console.log(printLL(p1));
+			// console.log(printLL(p1));
 			expect(intersectionSol1(p1, q1)).toBe(null);
 	});
 
@@ -66,9 +66,9 @@ describe("Validate sol1 returns intersecting node", () => {
 			q2.next = q3;
 			q3.next = q4;
 			q4.next = q5;
-			console.log(printLL(q1));
+			// console.log(printLL(q1));
 			let p1 = new ListNode(null);
-			console.log(printLL(p1));
+			// console.log(printLL(p1));
 			expect(intersectionSol1(p1, q1)).toBe(null);
 	});
 });
