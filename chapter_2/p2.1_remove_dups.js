@@ -85,22 +85,6 @@ const removeDupsSol1 = (headNode) => {
 }
 //Space - O(N) where N is unique elements of the LL
 //Time - O(N) where N is length of the LL
-// let n1 = new ListNode(1);
-// let ll1 = new LinkedList(n1);
-// ll1.add(2);
-// ll1.add(33);
-// ll1.add(99);
-// ll1.add(66);
-// ll1.add(55);
-// ll1.add(33);
-// ll1.add(77);
-// // console.log(ll1.printList());
-// removeDupsSol1(n1);
-// // console.log(ll1.printList());
-// let llEmpty = new LinkedList();
-// // removeDupsSol1(llEmpty.head);
-// console.log(llEmpty.printList());
-
 
 //Sol2
 //Sol without use of buffer
@@ -123,18 +107,5 @@ const removeDupsSol2 = (headNode) => {
 }
 let n2 = new ListNode(1);
 let ll2 = new LinkedList(n2);
-ll2.add(2);
-ll2.add(33);
-ll2.add(99);
-ll2.add(66);
-ll2.add(55);
-ll2.add(33);
-ll2.add(77);
-console.log(ll2.printList());
-removeDupsSol2(n2);
-console.log(ll2.printList());
-let ll2Empty = new LinkedList();
-removeDupsSol2(ll2Empty.head);
-console.log(ll2Empty.printList());
 
 module.exports = {removeDupsSol2, removeDupsSol1};

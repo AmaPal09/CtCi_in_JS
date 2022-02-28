@@ -15,7 +15,6 @@ describe("Validate sol1 remove dups", () => {
 			ll1.add(55);
 			ll1.add(33);
 			ll1.add(77);
-			// console.log(ll1.printList());
 			removeDupsSol1(n1);
 			let n2 = new ListNode(1);
 			let ll2 = new LinkedList(2);
