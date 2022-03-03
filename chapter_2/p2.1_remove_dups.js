@@ -82,6 +82,7 @@ const removeDupsSol1 = (headNode) => {
 			currNode = currNode.next;
 		}
 	}
+	return headNode;
 }
 //Space - O(N) where N is unique elements of the LL
 //Time - O(N) where N is length of the LL

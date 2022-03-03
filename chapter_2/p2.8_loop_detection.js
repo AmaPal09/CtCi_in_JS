@@ -90,3 +90,5 @@ m2.next = m3;
 m3.next = m4;
 m4.next = m5;
 console.log(loopDetectionSol1(m1));
+
+module.exports = {ListNode, printLL, loopDetectionSol1};
