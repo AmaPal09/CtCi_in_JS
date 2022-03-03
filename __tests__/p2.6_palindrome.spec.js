@@ -107,12 +107,12 @@ describe("Validate sizeOfLL prints the linked list ", () => {
 			expect(size).toBe(5);
 	});
 
-	test("Validate sizeOfLL", () => {
-		let n = new ListNode(null)
-		let ll1 = new LinkedList(n);
-		let size = ll1.sizeOfLL();
-		expect(size).toBe(0);
-	});
+	// test("Validate sizeOfLL", () => {
+	// 	let n = new ListNode(null)
+	// 	let ll1 = new LinkedList(n);
+	// 	let size = ll1.sizeOfLL();
+	// 	expect(size).toBe(0);
+	// });
 
 	test("Validate sizeOfLL", () => {
 		let head1 = new ListNode("a");

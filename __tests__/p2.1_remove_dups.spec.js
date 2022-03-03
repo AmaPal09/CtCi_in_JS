@@ -15,13 +15,13 @@ describe("Validate sol1 remove dups", () => {
 			ll1.add(55);
 			ll1.add(33);
 			ll1.add(77);
-			removeDupsSol1(n1);
+			expect(removeDupsSol1(n1)).toEqual(ll1.head);
 			let n2 = new ListNode(1);
-			let ll2 = new LinkedList(2);
+			let ll2 = new LinkedList(n2);
 			ll2.add(99);
 			ll2.add(66);
 			ll2.add(55);
 			ll2.add(77);
-			expect(removeDupsSol1(llEmpty.head)).toEqual(ll2);
+			expect(removeDupsSol1(ll2.head)).toEqual(ll2.head);
 	});
 });
