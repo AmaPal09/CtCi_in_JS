@@ -163,3 +163,5 @@ let isEmptyb2 = tio.isEmptyMiddle();
 let isEmptyc2 = tio.isEmptyBottom();
 console.log(isEmptya2, isEmptyb2, isEmptyc2);
 console.log(tio.container);
+
+module.exports = {ThreeInOne}
