@@ -7,7 +7,7 @@ Implement a method to perform basic string compression using the counts of repea
 Examples
 1) "aabcccccaaa" -> a2b1c5a3
 2) "abcd" -> abcd
-3) "aabbc" -> a2b2c
+3) "aabbc" -> aabbc
 4) "" -> ""
 5) "aaAAAbCCcccaaAAA" -> a2A3b1C2c3a2A3
 */
