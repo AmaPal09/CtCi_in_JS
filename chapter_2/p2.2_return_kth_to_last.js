@@ -98,7 +98,7 @@ const kthToLastSol1 = (headNode, k) => {
 	let ptr2 = headNode;
 	for(let i = 0; i < k; i++) {
 		if (ptr2.next == null) {
-			return console.log("k greater than length of linkedList")
+			return "k greater than length of linkedList"
 		}
 		ptr2 = ptr2.next;
 	}
@@ -111,41 +111,45 @@ const kthToLastSol1 = (headNode, k) => {
 	return ptr1;
 }
 
-let n1 = new ListNode(1);
-let ll1 = new LinkedList(n1);
-console.log(kthToLastSol1(ll1.head, 4));
-// 'a'->'e'->'c'->'d'->'c'->'a', 4 => 'c'->'d'->'c'->'a'
-let n2 = new ListNode('a');
-let ll2 = new LinkedList(n2);
-ll2.add('e');
-ll2.add('c');
-ll2.add('d');
-ll2.add('f');
-ll2.add('x');
-ll2.printList();
-console.log(kthToLastSol1(ll2.head, 4));
-let ll3 = new LinkedList();
-console.log(kthToLastSol1(ll3.head, 0));
+// let n1 = new ListNode(1);
+// let ll1 = new LinkedList(n1);
+// console.log(kthToLastSol1(ll1.head, 4));
+// // 'a'->'e'->'c'->'d'->'c'->'a', 4 => 'c'->'d'->'c'->'a'
+// let n2 = new ListNode('a');
+// let ll2 = new LinkedList(n2);
+// ll2.add('e');
+// ll2.add('c');
+// ll2.add('d');
+// ll2.add('f');
+// ll2.add('x');
+// ll2.printList();
+// console.log(kthToLastSol1(ll2.head, 4));
+// let ll3 = new LinkedList();
+// console.log(kthToLastSol1(ll3.head, 0));
 
 
 //Sol2
- const kthToLastSol2 = (headNode, k) => {
- 	if (headNode == null) {
- 		return 0;
- 	}
+//return Node11/c11. So error
+//  const kthToLastSol2 = (headNode, k) => {
+//  	if (headNode == null) {
+//  		return 0;
+//  	}
 
- 	let index = kthToLastSol2(headNode.next,k)+1;
- 	if (index == k) {
- 		console.log(`${k}th to the last node is ${headNode.val}`);
- 	}
- 	return index;
- }
-let n4 = new ListNode('a');
-let ll4 = new LinkedList(n2);
-ll4.add('e');
-ll4.add('c');
-ll4.add('d');
-ll4.add('f');
-ll4.add('x');
-ll4.printList();
-kthToLastSol2(ll4.head, 4);
+//  	let index = kthToLastSol2(headNode.next,k)+1;
+//  	if (index == k) {
+//  		return headNode;
+//  	}
+//  	return index;
+//  }
+// let n4 = new ListNode('a');
+// let ll4 = new LinkedList(n4);
+// ll4.add('e');
+// ll4.add('c');
+// ll4.add('d');
+// ll4.add('f');
+// ll4.add('x');
+// ll4.printList();
+// console.log(kthToLastSol2(ll4.head, 4));
+
+
+module.exports = {kthToLastSol1}
