@@ -2,7 +2,7 @@
 Remove Dups
 Write code to remove duplicates from an unsorted linked list.
 FOLLOW UP
-how will you solve this problem if a temp burrer is not allowed
+how will you solve this problem if a temp buffer is not allowed
 */
 
 /*
