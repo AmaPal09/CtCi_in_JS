@@ -57,23 +57,6 @@ describe("Validate sol1 remove dups", () => {
 			removeDupsSol1(lla.head);
 			expect(lla.head).toEqual(llg.head);
 	});
-
-	// test("Validate Sol1 does not delete anything when no duplicates are found", () => {
-	// 		let k1 = new ListNode(1);
-	// 		let l1 = new ListNode(2);
-	// 		let m1 = new ListNode(3);
-	// 		let n1 = new ListNode(4);
-	// 		console.log(k1);
-
-	// 		let o1 = new ListNode(1);
-	// 		let p1 = new ListNode(2);
-	// 		let q1 = new ListNode(3);
-	// 		let r1 = new ListNode(4);
-	// 		console.log(o1)
-
-	// 		removeDupsSol1(k1);
-	// 		expect(k1).toEqual(o1);
-	// });
 });
 
 
