@@ -26,43 +26,49 @@ Example:
 2) 'a'->'e'->'c'->'d'->'c'->'a' => 'a'->'e'->'c'->'d'
 */
 
-class ListNode {
-	constructor(val) {
-		this.val = val;
-		this.next = null
-	}
-}
+// class ListNode {
+// 	constructor(val) {
+// 		this.val = val;
+// 		this.next = null
+// 	}
+// }
 
-class LinkedList {
-	constructor(head = null) {
-		this.head = head;
-	}
+// class LinkedList {
+// 	constructor(head = null) {
+// 		this.head = head;
+// 	}
 
-	add(elem) {
-		let node = new ListNode(elem);
+// 	add(elem) {
+// 		let node = new ListNode(elem);
 
-		if (this.head === null) {
-			this.head = node;
-		}
-		else {
-			let curr = this.head;
-			while (curr.next != null) {
-				curr = curr.next;
-			}
-			curr.next = node;
-		}
-	}
+// 		if (this.head === null) {
+// 			this.head = node;
+// 		}
+// 		else {
+// 			let curr = this.head;
+// 			while (curr.next != null) {
+// 				curr = curr.next;
+// 			}
+// 			curr.next = node;
+// 		}
+// 	}
 
-	printList() {
-		let curr = this.head;
-		let prtArr = []
-		while (curr != null) {
-			prtArr.push(curr.val);
-			curr = curr.next
-		}
-		return prtArr.join("->");
-	}
-}
+// 	printList() {
+// 		let curr = this.head;
+// 		let prtArr = []
+// 		while (curr != null) {
+// 			prtArr.push(curr.val);
+// 			curr = curr.next
+// 		}
+// 		return prtArr.join("->");
+// 	}
+
+// 	addMultiple(elems) {
+// 		for(let i = 0; i < elems.length; i++) {
+// 			this.add(elems[i])
+// 		}
+// 	}
+// }
 
 
 //Sol1
@@ -106,7 +112,5 @@ const removeDupsSol2 = (headNode) => {
 		currNode = currNode.next;
 	}
 }
-let n2 = new ListNode(1);
-let ll2 = new LinkedList(n2);
 
 module.exports = {removeDupsSol2, removeDupsSol1};
