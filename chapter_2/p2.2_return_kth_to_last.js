@@ -25,7 +25,7 @@ Questions:
 
 /*
 Assumption:
-1) Node is expect as return
+1) Node is expected as return
 2) Function is passed with the head of the LL
 */
 
