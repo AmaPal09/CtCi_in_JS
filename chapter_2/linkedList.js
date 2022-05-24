@@ -1,13 +1,13 @@
 //Basic linked List
 
-class ListNode {
+export class ListNode {
 	constructor(data) {
 		this.data = data
 		this.next = null
 	}
 }
 
-class LinkedList {
+export class LinkedList {
 	constructor(head = null) {
 		this.head = head;
 	}
@@ -61,6 +61,13 @@ class LinkedList {
 			currNode.next = newNode
 		}
 		// this.size ++;
+	}
+
+	//Add multiple elements from given list
+	addMultiple(elems) {
+		for(let i = 0; i < elems.length; i++) {
+			this.add(elems[i])
+		}
 	}
 
 	//insert element at the position index of the list
@@ -190,6 +197,7 @@ class LinkedList {
 // let ll1 = new LinkedList(node1);
 
 // ll1.add(2);
+// ll1.addMultiple([3,4,5]);
 // console.log(ll1.printList());
 // ll1.add(4);
 // console.log(ll1.printList());
@@ -213,4 +221,4 @@ class LinkedList {
 // console.log(ll1.printList());
 
 
-module.exports = { ListNode, LinkedList};
+// module.exports = { ListNode, LinkedList};
