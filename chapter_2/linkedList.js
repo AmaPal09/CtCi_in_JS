@@ -1,13 +1,13 @@
 //Basic linked List
 
-export class ListNode {
+class ListNode {
 	constructor(data) {
 		this.data = data
 		this.next = null
 	}
 }
 
-export class LinkedList {
+class LinkedList {
 	constructor(head = null) {
 		this.head = head;
 	}
@@ -221,4 +221,4 @@ export class LinkedList {
 // console.log(ll1.printList());
 
 
-// module.exports = { ListNode, LinkedList};
+module.exports = { ListNode, LinkedList};
