@@ -73,23 +73,6 @@ const delMiddleNodeSol1 = (midNode) => {
 		midNode.next = midNode.next.next;
 	}
 }
-// let n2 = new ListNode(1);
-// let ll2 = new LinkedList(n2);
-// ll2.add(2);
-// ll2.add(3);
-// ll2.add(4);
-// ll2.add(5);
-// ll2.add(6);
-// delMiddleNodeSol1(ll2.head.next.next.next.next.next);
-// ll2.printLL();
-// let n3 = new ListNode('a');
-// let ll3 = new LinkedList(n3);
-// ll3.add('b');
-// ll3.add('c');
-// ll3.add('d');
-// console.log(n3.val)
-// delMiddleNodeSol1(ll3.head.next);
-// ll3.printLL();
 
 module.exports = {
 	delMiddleNodeSol1,
