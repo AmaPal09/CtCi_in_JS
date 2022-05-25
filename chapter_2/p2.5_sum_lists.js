@@ -305,6 +305,10 @@ const sumListsSol3 = (head1, head2, carry = 0) => {
 	if (!head1 && !head2 && carry===0 ) {
 		return null;
 	}
+	console.log(" ");
+	console.log(head1);
+	console.log(head2);
+	console.log(carry);
 
 	let value = carry;
 	if (head1 !== null) {
@@ -315,11 +319,13 @@ const sumListsSol3 = (head1, head2, carry = 0) => {
 	}
 
 	let result = new LL.ListNode(value % 10);
+	console.log(value);
+	console.log(result);
 
 	//recurse through the function
 	result.next = sumListsSol3( head1 ? head1.next : null,
 								head2 ? head2.next : null,
-								value > 10 ? Math.floor(value/10) : 0);
+								value >= 10 ? Math.floor(value/10) : 0);
 	return result;
 }
 // console.log("Test1c")
@@ -333,7 +339,8 @@ const sumListsSol3 = (head1, head2, carry = 0) => {
 // numLL2c.add(5);
 // numLL2c.add(6);
 // console.log(numLL2c.printList());
-// let resultLL1c = sumListsSol2(numLL1c.head, numLL2c.head);
+// let resultLL1c = new LL.LinkedList();
+// resultLL1c.head = sumListsSol3(numLL1c.head, numLL2c.head);
 // console.log(resultLL1c.printList());
 
 // console.log("Test 4c");
@@ -344,9 +351,22 @@ const sumListsSol3 = (head1, head2, carry = 0) => {
 // let num8c = new LL.ListNode(1);
 // let numLL8c = new LL.LinkedList(num8c);
 // console.log(numLL8c.printList());
-// let resultLL4c = sumListsSol2(numLL7c.head, numLL8c.head);
+// let resultLL4c = new LL.LinkedList();
+// resultLL4c.head = sumListsSol3(numLL7c.head, numLL8c.head);
 // console.log(resultLL4c.printList());
 
+// console.log("Test 3");
+// let num9c = new LL.ListNode(9);
+// let numLL9c = new LL.LinkedList(num9c);
+// numLL9c.add(9);
+// numLL9c.add(9);
+// console.log(numLL9c.printList());
+// let num10c = new LL.ListNode(1);
+// let numLL10c = new LL.LinkedList(num10c);
+// console.log(numLL10c.printList());
+// let resultLL5c = new LL.LinkedList();
+// resultLL5c.head = sumListsSol3(numLL8c.head, numLL10c.head);
+// console.log(resultLL5c.printList());
 
 // Sol4 For Follow up
 const invertLL = (head) => {
@@ -404,4 +424,5 @@ console.log(resultLL4d.printList());
 module.exports = {
 	sumListsSol1,
 	sumListsSol2,
+	sumListsSol3
 }
