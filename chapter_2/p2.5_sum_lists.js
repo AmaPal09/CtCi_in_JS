@@ -305,10 +305,6 @@ const sumListsSol3 = (head1, head2, carry = 0) => {
 	if (!head1 && !head2 && carry===0 ) {
 		return null;
 	}
-	console.log(" ");
-	console.log(head1);
-	console.log(head2);
-	console.log(carry);
 
 	let value = carry;
 	if (head1 !== null) {
@@ -319,8 +315,6 @@ const sumListsSol3 = (head1, head2, carry = 0) => {
 	}
 
 	let result = new LL.ListNode(value % 10);
-	console.log(value);
-	console.log(result);
 
 	//recurse through the function
 	result.next = sumListsSol3( head1 ? head1.next : null,
@@ -369,6 +363,24 @@ const sumListsSol3 = (head1, head2, carry = 0) => {
 // console.log(resultLL5c.printList());
 
 // Sol4 For Follow up
+
+const sumListsSol4 = (head1, head2) => {
+	let invertedLL1 = new LL.LinkedList();
+	let invertedLL2 = new LL.LinkedList();
+
+	invertedLL1.head = invertLL(head1);
+	invertedLL2.head = invertLL(head2);
+
+	let invertedResultLL = new LL.LinkedList();
+	invertedResultLL.head = sumListsSol1(invertedLL1.head, invertedLL2.head);
+
+	let resultLL = new LL.LinkedList();
+	resultLL.head = invertLL(invertedResultLL.head);
+	return resultLL.head;
+
+}
+
+
 const invertLL = (head) => {
 	let curr = head;
 	let prev = null;
@@ -424,5 +436,6 @@ console.log(resultLL4d.printList());
 module.exports = {
 	sumListsSol1,
 	sumListsSol2,
-	sumListsSol3
+	sumListsSol3,
+	sumListsSol4,
 }
