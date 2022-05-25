@@ -1,6 +1,6 @@
 /*
 Delete Middle Node
-Implement an algorith to delete a node in the middle (ie., any node by the first and the last node, not necessarily the exact middle) of a singly linked list, given only access to that node
+Implement an algorith to delete a node in the middle (ie., any node but the first and the last node, not necessarily the exact middle) of a singly linked list, given only access to that node
 */
 
 /*
@@ -10,7 +10,7 @@ Explaination:
 /*
 Questions:
 1) What to return if LL length is 3 and 4th to last element is asked for?
-2) What is its an empty LL
+2) What if its an empty LL
 3) What to return: the node or the val?
 */
 
