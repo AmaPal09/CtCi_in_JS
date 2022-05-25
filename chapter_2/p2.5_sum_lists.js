@@ -96,74 +96,74 @@ const sumListsSol1 = (inHead1, inHead2) => {
 
 	return sumHead;
 }
-// console.log("Test1")
-// let num1 = new LL.ListNode(1);
-// let numLL1 = new LL.LinkedList(num1);
-// numLL1.add(2);
-// numLL1.add(3);
-// console.log(numLL1.printList());
-// let num2 = new LL.ListNode(4);
-// let numLL2 = new LL.LinkedList(num2);
-// numLL2.add(5);
-// numLL2.add(6);
-// console.log(numLL2.printList());
-// let resultLL1 = new LL.LinkedList(sumListsSol1(numLL1.head, numLL2.head));
-// console.log(resultLL1.printList());
+console.log("Test1")
+let num1 = new LL.ListNode(1);
+let numLL1 = new LL.LinkedList(num1);
+numLL1.add(2);
+numLL1.add(3);
+console.log(numLL1.printList());
+let num2 = new LL.ListNode(4);
+let numLL2 = new LL.LinkedList(num2);
+numLL2.add(5);
+numLL2.add(6);
+console.log(numLL2.printList());
+let resultLL1 = new LL.LinkedList(sumListsSol1(numLL1.head, numLL2.head));
+console.log(resultLL1.printList());
 
-// console.log("Test 2");
-// let numLL3 = new LL.LinkedList();
-// console.log(numLL3.printList());
-// let num4 = new LL.ListNode(1);
-// let numLL4 = new LL.LinkedList(num4);
-// numLL4.add(2)
-// console.log(numLL4.printList());
-// let resultLL2 = new LL.LinkedList(sumListsSol1(numLL3.head, numLL4.head));
-// console.log(resultLL2.printList());
+console.log("Test 2");
+let numLL3 = new LL.LinkedList();
+console.log(numLL3.printList());
+let num4 = new LL.ListNode(1);
+let numLL4 = new LL.LinkedList(num4);
+numLL4.add(2)
+console.log(numLL4.printList());
+let resultLL2 = new LL.LinkedList(sumListsSol1(numLL3.head, numLL4.head));
+console.log(resultLL2.printList());
 
-// console.log("Test 3");
-// let num5 = new LL.ListNode(0);
-// let numLL5 = new LL.LinkedList(num5);
-// console.log(numLL5.printList());
-// let num6 = new LL.ListNode(1);
-// let numLL6 = new LL.LinkedList(num6);
-// numLL6.add(2)
-// console.log(numLL6.printList());
-// let resultLL3 = new LL.LinkedList(sumListsSol1(numLL5.head, numLL6.head));
-// console.log(resultLL3.printList());
+console.log("Test 3");
+let num5 = new LL.ListNode(0);
+let numLL5 = new LL.LinkedList(num5);
+console.log(numLL5.printList());
+let num6 = new LL.ListNode(1);
+let numLL6 = new LL.LinkedList(num6);
+numLL6.add(2)
+console.log(numLL6.printList());
+let resultLL3 = new LL.LinkedList(sumListsSol1(numLL5.head, numLL6.head));
+console.log(resultLL3.printList());
 
-// console.log("Test 4");
-// let num7 = new LL.ListNode(9);
-// let numLL7 = new LL.LinkedList(num7);
-// numLL7.add(9);
-// console.log(numLL7.printList());
-// let num8 = new LL.ListNode(1);
-// let numLL8 = new LL.LinkedList(num8);
-// console.log(numLL8.printList());
-// let resultLL4 = new LL.LinkedList(sumListsSol1(numLL7.head, numLL8.head));
-// console.log(resultLL4.printList());
+console.log("Test 4");
+let num7 = new LL.ListNode(9);
+let numLL7 = new LL.LinkedList(num7);
+numLL7.add(9);
+console.log(numLL7.printList());
+let num8 = new LL.ListNode(1);
+let numLL8 = new LL.LinkedList(num8);
+console.log(numLL8.printList());
+let resultLL4 = new LL.LinkedList(sumListsSol1(numLL7.head, numLL8.head));
+console.log(resultLL4.printList());
 
-// console.log("Test 5");
-// let num9 = new LL.ListNode(9);
-// let numLL9 = new LL.LinkedList(num9);
-// numLL9.add(9);
-// console.log(numLL9.printList());
-// let num10 = new LL.ListNode(9);
-// let numLL10 = new LL.LinkedList(num10);
-// numLL10.add(9);
-// console.log(numLL10.printList());
-// let resultLL5 = new LL.LinkedList(sumListsSol1(numLL9.head, numLL10.head));
-// console.log(resultLL5.printList());
+console.log("Test 5");
+let num9 = new LL.ListNode(9);
+let numLL9 = new LL.LinkedList(num9);
+numLL9.add(9);
+console.log(numLL9.printList());
+let num10 = new LL.ListNode(9);
+let numLL10 = new LL.LinkedList(num10);
+numLL10.add(9);
+console.log(numLL10.printList());
+let resultLL5 = new LL.LinkedList(sumListsSol1(numLL9.head, numLL10.head));
+console.log(resultLL5.printList());
 
-// console.log("Test 6");
-// let num11 = new LL.ListNode(1);
-// let numLL11 = new LL.LinkedList(num11);
-// console.log(numLL11.printList());
-// let num12 = new LL.ListNode(9);
-// let numLL12 = new LL.LinkedList(num12);
-// numLL12.add(9);
-// console.log(numLL12.printList());
-// let resultLL6 = new LL.LinkedList(sumListsSol1(numLL11.head, numLL12.head));
-// console.log(resultLL6.printList());
+console.log("Test 6");
+let num11 = new LL.ListNode(1);
+let numLL11 = new LL.LinkedList(num11);
+console.log(numLL11.printList());
+let num12 = new LL.ListNode(9);
+let numLL12 = new LL.LinkedList(num12);
+numLL12.add(9);
+console.log(numLL12.printList());
+let resultLL6 = new LL.LinkedList(sumListsSol1(numLL11.head, numLL12.head));
+console.log(resultLL6.printList());
 
 
 
@@ -399,3 +399,7 @@ let resultInverted4d = sumListsSol1(invertLL(numLL7d.head), invertLL(numLL8d.hea
 console.log(resultInverted4d);
 let resultLL4d = new LL.LinkedList(invertLL(resultInverted4d));
 console.log(resultLL4d.printList());
+
+module.exports = {
+	sumListsSol1
+}
