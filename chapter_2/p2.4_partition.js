@@ -24,6 +24,10 @@ Example:
 
 //Sol1
 const partitionSol1 = (headNode, partition) => {
+	if (headNode == null) {
+		return headNode;
+	}
+
 	let leftHead = null;
 	let leftTail = null;
 	let rightHead = null;
@@ -53,9 +57,17 @@ const partitionSol1 = (headNode, partition) => {
 		}
 		headNode = headNode.next;
 	}
-	leftTail.next = rightHead;
 
-	return leftHead;
+	if (leftTail) {
+		leftTail.next = rightHead;
+		return leftHead;
+	}
+	else {
+		return rightHead;
+	}
+
+
+
 }
 
 
@@ -78,5 +90,7 @@ console.log(resultNode);
 // '3->5->8->5->10->2->1' [partition = 5] => '3->1->2 -> 10->5->5->8'
 
 
-
+module.exports = {
+	partitionSol1
+}
 
