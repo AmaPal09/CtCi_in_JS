@@ -140,9 +140,55 @@ describe("Validate ThreeInOne holds three stacks with 3 sets of commands in one 
 			console.log(tio.container);
 	});
 
-	// tio.pushMid('2a');
-	// tio.pushMid('2b');
-	// tio.pushMid('2c');
+
+	test("Validate values popped correctly from the bottom stack", () => {
+			tio.pushMid('2a');
+			tio.pushMid('2b');
+			tio.pushMid('2c');
+			console.log("test pop middle");
+			console.log(tio.container);
+
+			let poppedVal = tio.popBottom();
+			console.log("Poped val is", poppedVal);
+			console.log("Middle top is", tio.middleTop);
+			console.log("Middle bottom is", tio.middleBottom);
+			expect(poppedVal).toEqual('3c');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+
+			console.log(tio.container);
+
+			poppedVal = tio.popBottom();
+			console.log("Poped val is", poppedVal);
+			console.log("Middle top is", tio.middleTop);
+			console.log("Middle bottom is", tio.middleBottom);
+			expect(poppedVal).toEqual('3b');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+	});
+
+	test("Validate isEmptyBottom returns whether bottom stack is empty or not", () => {
+			console.log("test isEmptyBottom");
+			console.log(tio.container);
+			console.log(tio.isEmptyBottom());
+
+			expect(tio.isEmptyBottom()).toBeFalsy();
+
+			let poppedVal = tio.popBottom();
+			console.log("Poped val is", poppedVal);
+			console.log("Middle top is", tio.middleTop);
+			console.log("Middle bottom is", tio.middleBottom);
+			expect(poppedVal).toEqual('3a');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+
+			expect(tio.isEmptyBottom()).toBeTruthy();
+
+			poppedVal = tio.popBottom();
+			expect(poppedVal).toEqual(undefined);
+			console.log(tio.container);
+	});
+
 });
 
 
