@@ -264,20 +264,44 @@ describe("Validate ThreeInOne holds three stacks with 3 sets of commands in one 
 });
 
 
-// describe("Validate top stack in ThreeInOne functions even when other 2 stacks are not filled", () => {
-// 	let tio = new ThreeInOne();
-// 	test("Validate values added in the middle stack", () => {
-// 			tio.pushTop('1a');
-// 			expect(tio.container).toEqual(['1a'])
-// 			tio.pushTop('1b');
-// 			expect(tio.container).toEqual(['1b', '1a']);
-// 			tio.pushTop('1c');
-// 			expect(tio.container).toEqual(['1c', '1b', '1a']);
-// 			console.log(tio.container);
-// 			expect(tio.middleTop).toEqual(3);
-// 			expect(tio.middleBottom).toEqual(3);
-// 	});
-// });
+describe("Validate top stack in ThreeInOne functions even when other 2 stacks are not filled", () => {
+	let tio = new ThreeInOne();
+
+	test("Validate values added in the top stack", () => {
+			tio.pushTop('1a');
+			expect(tio.container).toEqual(['1a'])
+			tio.pushTop('1b');
+			expect(tio.container).toEqual(['1b', '1a']);
+			tio.pushTop('1c');
+			expect(tio.container).toEqual(['1c', '1b', '1a']);
+			console.log(tio.container);
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(3);
+	});
+
+	test("Validate pop removes values from top stack", () => {
+		let poppedVal = tio.popTop();
+		expect(poppedVal).toEqual('1c');
+		poppedVal = tio.popTop();
+		expect(poppedVal).toEqual('1b');
+
+	});
+	test("Validate isEmpty top returns whether top stack is empty", () => {
+		expect(tio.isEmptyTop()).toBeFalsy();
+		let poppedVal = tio.popTop();
+		expect(poppedVal).toEqual('1a');
+		expect(tio.isEmptyTop()).toBeTruthy();
+	});
+	test("Validate peek returns last inserted value from the top stack", () => {
+		tio.pushTop('1a');
+		expect(tio.peekTop()).toEqual('1a');
+		tio.pushTop('1b');
+		expect(tio.peekTop()).toEqual('1b');
+		tio.popTop();
+		tio.popTop();
+		expect(tio.peekTop()).toEqual(undefined);
+	});
+});
 
 
 // describe("Validate middle stack in ThreeInOne functions even when other 2 stacks are not filled", () => {
