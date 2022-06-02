@@ -93,7 +93,9 @@ class ThreeInOne {
 			return undefined;
 		}
 
-		return this.container.pop();
+		let answer = this.container[this.middleBottom];
+		this.container.splice(this.middleBottom, 1);
+		return answer
 	}
 
 	peekTop() {
