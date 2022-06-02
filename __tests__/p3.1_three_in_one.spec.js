@@ -188,6 +188,79 @@ describe("Validate ThreeInOne holds three stacks with 3 sets of commands in one 
 			// console.log(tio.container);
 	});
 
+
+	test("Validate peekTop returns last entry from the top stack", () => {
+			tio.pushBottom('3a');
+			tio.pushBottom('3b');
+			tio.pushBottom('3c');
+			console.log("test peekTop");
+			// console.log(tio.container);
+
+			tio.pushTop('one')
+
+			expect(tio.peekTop()).toEqual('one');
+			expect(tio.middleTop).toEqual(4);
+			expect(tio.middleBottom).toEqual(7);
+
+			let poppedVal = tio.popTop();
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+
+			expect(tio.peekTop()).toEqual('1c');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+	});
+
+
+	test("Validate peekMiddle returns last entry from the Middle stack", () => {
+			console.log("test peekMiddle");
+			// console.log(tio.container);
+
+			tio.pushMid('two')
+			// console.log(tio.container);
+			// console.log(tio.middleTop);
+			// console.log(tio.middleBottom);
+
+			expect(tio.peekMiddle()).toEqual('two');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(7);
+
+			let poppedVal = tio.popMiddle();
+			// console.log(tio.container);
+			// console.log(tio.middleTop);
+			// console.log(tio.middleBottom);
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+
+			expect(tio.peekMiddle()).toEqual('2c');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+	});
+
+	test("Validate peekBottom returns last entry from the Bottom stack", () => {
+			console.log("test peekBottom");
+			// console.log(tio.container);
+
+			tio.pushBottom('three')
+			// console.log(tio.container);
+			// console.log(tio.middleTop);
+			// console.log(tio.middleBottom);
+
+			expect(tio.peekBottom()).toEqual('three');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+
+			let poppedVal = tio.popBottom();
+			// console.log(tio.container);
+			// console.log(tio.middleTop);
+			// console.log(tio.middleBottom);
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+
+			expect(tio.peekBottom()).toEqual('3c');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(6);
+	});
 });
 
 
