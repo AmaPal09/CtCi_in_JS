@@ -304,20 +304,42 @@ describe("Validate top stack in ThreeInOne functions even when other 2 stacks ar
 });
 
 
-// describe("Validate middle stack in ThreeInOne functions even when other 2 stacks are not filled", () => {
-// 	let tio = new ThreeInOne();
-// 	test("Validate values added in the middle stack", () => {
-// 			tio.pushMid('2a');
-// 			expect(tio.container).toEqual(['2a'])
-// 			tio.pushMid('2b');
-// 			expect(tio.container).toEqual(['2b', '2a']);
-// 			tio.pushMid('2c');
-// 			expect(tio.container).toEqual(['2c', '2b', '2a']);
-// 			console.log(tio.container);
-// 			expect(tio.middleTop).toEqual(0);
-// 			expect(tio.middleBottom).toEqual(3);
-// 	});
-// });
+describe("Validate middle stack in ThreeInOne functions even when other 2 stacks are not filled", () => {
+	let tio = new ThreeInOne();
+	test("Validate values added in the middle stack", () => {
+			tio.pushMid('2a');
+			expect(tio.container).toEqual(['2a'])
+			tio.pushMid('2b');
+			expect(tio.container).toEqual(['2b', '2a']);
+			tio.pushMid('2c');
+			expect(tio.container).toEqual(['2c', '2b', '2a']);
+			console.log(tio.container);
+			expect(tio.middleTop).toEqual(0);
+			expect(tio.middleBottom).toEqual(3);
+	});
+	test("Validate pop removes values from middle stack", () => {
+		let poppedVal = tio.popMiddle();
+		expect(poppedVal).toEqual('2c');
+		poppedVal = tio.popMiddle();
+		expect(poppedVal).toEqual('2b');
+
+	});
+	test("Validate isEmpty middle returns whether middle stack is empty", () => {
+		expect(tio.isEmptyMiddle()).toBeFalsy();
+		let poppedVal = tio.popMiddle();
+		expect(poppedVal).toEqual('2a');
+		expect(tio.isEmptyMiddle()).toBeTruthy();
+	});
+	test("Validate peek returns last inserted value from the middle stack", () => {
+		tio.pushMid('2a');
+		expect(tio.peekMiddle()).toEqual('2a');
+		tio.pushMid('2b');
+		expect(tio.peekMiddle()).toEqual('2b');
+		tio.popMiddle();
+		tio.popMiddle();
+		expect(tio.peekMiddle()).toEqual(undefined);
+	});
+});
 
 
 
