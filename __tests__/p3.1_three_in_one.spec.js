@@ -343,17 +343,39 @@ describe("Validate middle stack in ThreeInOne functions even when other 2 stacks
 
 
 
-// describe("Validate bottom stack in ThreeInOne functions even when other 2 stacks are not filled", () => {
-// 	let tio = new ThreeInOne();
-// 	test("Validate values added in the middle stack", () => {
-// 			tio.pushBottom('3a');
-// 			expect(tio.container).toEqual([ '3a',])
-// 			tio.pushBottom('3b');
-// 			expect(tio.container).toEqual([ '3b', '3a']);
-// 			tio.pushBottom('3c');
-// 			expect(tio.container).toEqual(['3c', '3b', '3a']);
-// 			console.log(tio.container);
-// 			expect(tio.middleTop).toEqual(0);
-// 			expect(tio.middleBottom).toEqual(0);
-// 	});
-// });
+describe("Validate bottom stack in ThreeInOne functions even when other 2 stacks are not filled", () => {
+	let tio = new ThreeInOne();
+	test("Validate values added in the bottom stack", () => {
+			tio.pushBottom('3a');
+			expect(tio.container).toEqual([ '3a',])
+			tio.pushBottom('3b');
+			expect(tio.container).toEqual([ '3b', '3a']);
+			tio.pushBottom('3c');
+			expect(tio.container).toEqual(['3c', '3b', '3a']);
+			console.log(tio.container);
+			expect(tio.middleTop).toEqual(0);
+			expect(tio.middleBottom).toEqual(0);
+	});
+	test("Validate pop removes values from bottom stack", () => {
+		let poppedVal = tio.popBottom();
+		expect(poppedVal).toEqual('3c');
+		poppedVal = tio.popBottom();
+		expect(poppedVal).toEqual('3b');
+
+	});
+	test("Validate isEmpty bottom returns whether bottom stack is empty", () => {
+		expect(tio.isEmptyBottom()).toBeFalsy();
+		let poppedVal = tio.popBottom();
+		expect(poppedVal).toEqual('3a');
+		expect(tio.isEmptyBottom()).toBeTruthy();
+	});
+	test("Validate peek returns last inserted value from the bottom stack", () => {
+		tio.pushBottom('3a');
+		expect(tio.peekBottom()).toEqual('3a');
+		tio.pushBottom('3b');
+		expect(tio.peekBottom()).toEqual('3b');
+		tio.popBottom();
+		tio.popBottom();
+		expect(tio.peekBottom()).toEqual(undefined);
+	});
+});
