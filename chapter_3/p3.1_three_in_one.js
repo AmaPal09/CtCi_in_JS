@@ -29,6 +29,14 @@ Example:
 1)
 */
 
+
+/*
+Splice syntax
+splice(start)
+splice(start, deleteCount)
+splice(start, deleteCount, item1)
+splice(start, deleteCount, item1, item2, itemN)
+*/
 class ThreeInOne {
 	constructor() {
 		this.container = [];
@@ -44,11 +52,11 @@ class ThreeInOne {
 
 	pushMid(val) {
 		this.container.splice(this.middleTop, 0, val);
-		this.middleTop++;
+		this.middleBottom++;
 	}
 
 	pushBottom(val) {
-		this.container.push(val);
+		this.container.splice(this.middleBottom, 0, val);
 	}
 
 	popTop(val) {
