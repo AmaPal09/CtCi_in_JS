@@ -103,11 +103,11 @@ class ThreeInOne {
 	}
 
 	peekMiddle() {
-		return this.isEmptyMiddle() ? undefined : this.container[this.middleTop - 1];
+		return this.isEmptyMiddle() ? undefined : this.container[this.middleTop];
 	}
 
 	peekBottom() {
-		return this.isEmptyBottom() ? undefined : this.container[this.middleBottom - 1];
+		return this.isEmptyBottom() ? undefined : this.container[this.middleBottom];
 	}
 
 	isEmptyTop() {
