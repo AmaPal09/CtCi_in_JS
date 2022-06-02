@@ -49,7 +49,7 @@ describe("Validate ThreeInOne holds three stacks with 3 sets of commands in one 
 			expect(tio.middleBottom).toEqual(6);
 	});
 
-	test("Validate values popped from the top stack correctly in the middle stack", () => {
+	test("Validate values popped correctly the top stack", () => {
 			console.log("test pop top");
 			console.log(tio.container);
 
@@ -90,11 +90,59 @@ describe("Validate ThreeInOne holds three stacks with 3 sets of commands in one 
 			console.log(tio.container);
 	});
 
-	tio.pushTop('1a');
-	tio.pushTop('1b');
-	tio.pushTop('1c');
 
 
+	test("Validate values popped correctly from the middle stack", () => {
+			tio.pushTop('1a');
+			tio.pushTop('1b');
+			tio.pushTop('1c');
+			console.log("test pop middle");
+			console.log(tio.container);
+
+			let poppedVal = tio.popMiddle();
+			console.log("Poped val is", poppedVal);
+			console.log("Middle top is", tio.middleTop);
+			console.log("Middle bottom is", tio.middleBottom);
+			expect(poppedVal).toEqual('2c');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(5);
+
+			console.log(tio.container);
+
+			poppedVal = tio.popMiddle();
+			console.log("Poped val is", poppedVal);
+			console.log("Middle top is", tio.middleTop);
+			console.log("Middle bottom is", tio.middleBottom);
+			expect(poppedVal).toEqual('2b');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(4);
+	});
+
+	test("Validate isEmptyMiddle returns whether middle stack is empty or not", () => {
+			console.log("test isEmptyMiddle");
+			console.log(tio.container);
+			console.log(tio.isEmptyMiddle());
+
+			expect(tio.isEmptyMiddle()).toBeFalsy();
+
+			let poppedVal = tio.popMiddle();
+			console.log("Poped val is", poppedVal);
+			console.log("Middle top is", tio.middleTop);
+			console.log("Middle bottom is", tio.middleBottom);
+			expect(poppedVal).toEqual('2a');
+			expect(tio.middleTop).toEqual(3);
+			expect(tio.middleBottom).toEqual(3);
+
+			expect(tio.isEmptyMiddle()).toBeTruthy();
+
+			poppedVal = tio.popMiddle();
+			expect(poppedVal).toEqual(undefined);
+			console.log(tio.container);
+	});
+
+	// tio.pushMid('2a');
+	// tio.pushMid('2b');
+	// tio.pushMid('2c');
 });
 
 
