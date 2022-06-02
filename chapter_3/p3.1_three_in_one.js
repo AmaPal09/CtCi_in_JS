@@ -109,7 +109,7 @@ class ThreeInOne {
 	}
 
 	isEmptyTop() {
-		return this.middleBottom === 0;
+		return this.middleTop === 0;
 	}
 
 	isEmptyMiddle() {
@@ -117,7 +117,7 @@ class ThreeInOne {
 	}
 
 	isEmptyBottom() {
-		return this.middleTop === this.container.length;
+		return this.middleBottom === this.container.length;
 	}
 }
 
