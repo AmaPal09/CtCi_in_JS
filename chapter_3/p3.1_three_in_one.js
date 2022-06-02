@@ -79,10 +79,10 @@ class ThreeInOne {
 			return undefined;
 		}
 
-		let answer = this.container[this.middleTop - 1];
-		this.container.splice(this.middleTop - 1, 1 );
-		if (this.middleBottom < this.middleTop) {
-			this.middleTop -- ;
+		let answer = this.container[this.middleTop];
+		this.container.splice(this.middleTop, 1 );
+		if (this.middleTop < this.middleBottom) {
+			this.middleBottom-- ;
 		}
 
 		return answer;
