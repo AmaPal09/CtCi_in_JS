@@ -116,3 +116,8 @@ console.log(min1.pop());
 console.log(min1.pop());
 console.log(min1.pop());
 console.log(min1.isEmpty());
+
+module.exports = {
+	minStack,
+	Stack
+}
