@@ -20,7 +20,7 @@ Assumption:
 
 /*
 Example:
-1) A -> B -> C -> D -> E -> C [same as the C earlier] C
+1)
 */
 
 class Stack {
@@ -69,7 +69,7 @@ class minStack extends Stack {
 
 	push(val) {
 		super.push(val);
-		if (this._min === null || val < this._min) {
+		if (this._min === null || val <= this._min) {
 			this._min = val;
 			this._minStack.push(val);
 		}
