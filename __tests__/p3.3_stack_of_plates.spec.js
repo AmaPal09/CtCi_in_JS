@@ -1,7 +1,7 @@
 import {Stack} from "./../chapter_3/p3.3_stack_of_plates.js";
 import {setOfStacks} from "./../chapter_3/p3.3_stack_of_plates.js";
 
-describe("Test setOfStacks", () => {
+describe("Test setOfStacks and push for setOfStacks", () => {
 	let bunchOfPlates = new setOfStacks(4);
 
 	test("Test push function creates new stacks of length equal to capacity", () => {
@@ -95,4 +95,27 @@ describe("Validate pop", () => {
 		expect(bunchOfPlates.pop()).toEqual(null);
 		expect(bunchOfPlates._stackSet.length).toEqual(0);
 	});
+});
+
+
+
+describe("Test popAt", () => {
+	let bunchOfPlates = new setOfStacks(4);
+	for(let i = 0; i < 13; i++){
+		bunchOfPlates.push(i);
+	}
+	test("Test popAt returns the last value from the stack index provided", () => {
+		expect(bunchOfPlates.popAt(0)).toEqual(3);
+		expect(bunchOfPlates.popAt(1)).toEqual(7);
+		expect(bunchOfPlates.popAt(2)).toEqual(11);
+		expect(bunchOfPlates.popAt(3)).toEqual(12);
+		expect(bunchOfPlates.popAt(0)).toEqual(2);
+	});
+
+	test("Test popAt returns empty if stack at index provided does not exist", () => {
+		expect(bunchOfPlates.popAt(4)).toEqual(undefined);
+		expect(bunchOfPlates.popAt(-1)).toEqual(undefined);
+	});
+
+
 });
