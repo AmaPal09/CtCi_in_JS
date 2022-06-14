@@ -64,9 +64,9 @@ describe("Validate peek", () => {
 		expect(bunchOfPlates.peek()).toEqual(1);
 	});
 
-	test("Test that peek returns non when the stack is empty", ()=> {
+	test("Test that peek returns null when the stack is empty", ()=> {
 		bunchOfPlates.pop();
-		expect(bunchOfPlates.peek()).toEqual(null);
+		expect(bunchOfPlates.peek()).toBeNull();
 	});
 });
 
@@ -92,7 +92,7 @@ describe("Validate pop", () => {
 		for(let i = 0; i< 4; i++){
 			bunchOfPlates.pop();
 		}
-		expect(bunchOfPlates.pop()).toEqual(null);
+		expect(bunchOfPlates.pop()).toBeNull();
 		expect(bunchOfPlates._stackSet.length).toEqual(0);
 	});
 });
