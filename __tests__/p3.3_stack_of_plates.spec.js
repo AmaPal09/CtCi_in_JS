@@ -69,3 +69,30 @@ describe("Validate peek", () => {
 		expect(bunchOfPlates.peek()).toEqual(null);
 	});
 });
+
+
+
+describe("Validate pop", () => {
+	let bunchOfPlates = new setOfStacks(4);
+	for(let i = 0; i < 6; i++){
+		bunchOfPlates.push(i);
+	}
+
+	test("Validate pop returns the last value from the last stack in the set of stacks", () => {
+		expect(bunchOfPlates.pop()).toEqual(5);
+	});
+
+	test("Validate pop returns the last value from the last stack so that the last stack isempty, that stack is removed from the set of stacks", () => {
+		expect(bunchOfPlates.pop()).toEqual(4);
+		expect(bunchOfPlates._stackSet.length).toEqual(1);
+		expect(bunchOfPlates.getLastStack()._stack).toEqual([0,1,2,3]);
+	});
+
+	test("Validate pop returns null when the set of stacks is empty", () => {
+		for(let i = 0; i< 4; i++){
+			bunchOfPlates.pop();
+		}
+		expect(bunchOfPlates.pop()).toEqual(null);
+		expect(bunchOfPlates._stackSet.length).toEqual(0);
+	});
+});
