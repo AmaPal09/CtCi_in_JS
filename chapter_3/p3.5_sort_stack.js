@@ -61,14 +61,14 @@ const sortStack = (inStack) => {
 
 	while(! inStack.isEmpty()) {
 		tmpvar = inStack.pop();
-		console.log(tmpvar);
+		// console.log(tmpvar);
 
 		while(! tempStack.isEmpty() && tempStack.peek() > tmpvar) {
 			inStack.push(tempStack.pop());
 		}
-		console.log(inStack._stack);
+		// console.log(inStack._stack);
 		tempStack.push(tmpvar);
-		console.log(tempStack._stack);
+		// console.log(tempStack._stack);
 	}
 
 	while (! tempStack.isEmpty()) {
