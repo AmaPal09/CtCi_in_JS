@@ -76,11 +76,11 @@ class setOfStacks {
 	}
 
 	getLastStack() {
-		if (this._stackSet.length == 0) {
+		if (this.isEmpty()) {
 			return null;
 		}
 		else {
-			this._stackSet[this._stackSet.length - 1];
+			return this._stackSet[this._stackSet.length - 1];
 		}
 	}
 
@@ -100,7 +100,8 @@ class setOfStacks {
 
 	push(val) {
 		let lastStack = this.getLastStack();
-		if (lastStack.size() == this.capacity || lastStack == null) {
+		// console.log(lastStack);
+		if (lastStack == null || lastStack.size() == this.capacity) {
 			let newStack = new Stack();
 			newStack.push(val);
 			this._stackSet.push(newStack);
@@ -116,7 +117,7 @@ class setOfStacks {
 		}
 		let lastStack = this.getLastStack();
 		let val = lastStack.pop();
-		if (lastStack.length == 0) {
+		if (lastStack.size() == 0) {
 			this._stackSet.pop();
 		}
 		return val;
@@ -133,4 +134,16 @@ class setOfStacks {
 		return val;
 	}
 
+}
+
+// let bunchOPlates = new setOfStacks(4);
+// for(let i = 0; i < 13; i++){
+// 	bunchOPlates.push(i);
+// }
+// console.log(bunchOPlates._stackSet[2]._stack);
+
+
+
+module.exports = {
+	setOfStacks
 }
