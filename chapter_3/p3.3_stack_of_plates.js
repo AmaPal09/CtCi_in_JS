@@ -136,12 +136,6 @@ class setOfStacks {
 
 }
 
-// let bunchOPlates = new setOfStacks(4);
-// for(let i = 0; i < 13; i++){
-// 	bunchOPlates.push(i);
-// }
-// console.log(bunchOPlates._stackSet[2]._stack);
-
 
 
 module.exports = {
