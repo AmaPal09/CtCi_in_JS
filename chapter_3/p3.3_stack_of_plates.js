@@ -85,7 +85,7 @@ class setOfStacks {
 	}
 
 	isEmpty() {
-		return this._stackSet.length == 0;
+		return this._stackSet.length === 0;
 	}
 
 	peek() {
