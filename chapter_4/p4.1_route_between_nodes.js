@@ -172,31 +172,196 @@ const checkRoute = (source, target, inGraph) => {
 }
 
 
-let gr1 = new Graph();
-gr1.addNode("A");
-gr1.addNode("B");
-gr1.addNode("C");
-gr1.addNode("D");
-gr1.addNode("E");
-gr1.addNode("F");
+// let gr1 = new Graph();
+// gr1.addNode("A");
+// gr1.addNode("B");
+// gr1.addNode("C");
+// gr1.addNode("D");
+// gr1.addNode("E");
+// gr1.addNode("F");
 
-gr1.addEdge('A', 'B');
-gr1.addEdge('A', 'C');
-gr1.addEdge('B', 'C');
-gr1.addEdge('D', 'E');
+// gr1.addEdge('A', 'B');
+// gr1.addEdge('A', 'C');
+// gr1.addEdge('B', 'C');
+// gr1.addEdge('D', 'E');
 
-//				A          D --* E
-//             / \
-//            *   *
-//			 C *-- B
+// //				A          D --* E
+// //             / \
+// //            *   *
+// //			 C *-- B
 
 
-console.log(gr1.nodes);
-console.log(checkRoute("A", "C", gr1));
-console.log(checkRoute("A", "E", gr1));
-console.log(checkRoute("B", "A", gr1));
-console.log(checkRoute("D", "E", gr1));
+// console.log(gr1.nodes);
+// console.log(checkRoute("A", "C", gr1));
+// console.log(checkRoute("A", "E", gr1));
+// console.log(checkRoute("B", "A", gr1));
+// console.log(checkRoute("D", "E", gr1));
 
 //What if the graph is bi-directional.
+
+
+
+//Approach 2
+/*
+Assumptions
+1) Graph is bidirectional.
+2) Implemented using adjacency lists
+2) Okay to use Bidirectional search (BFS in both directions) to come
+	find solution quicker
+*/
+
+class biGraph {
+	constructor() {
+		this.adjacencyList = {};
+	}
+
+	addVertex(vertex) {
+		this.adjacencyList[vertex] = [];
+		// console.log(this.adjacencyList)
+	}
+
+	addEdge(source, destination) {
+		if ( this.adjacencyList[source] === undefined) {
+			this.adjacencyList[source] = [];
+		}
+		if ( this.adjacencyList[destination] === undefined) {
+			this.adjacencyList[destination] = [];
+		}
+		this.adjacencyList[source].push(destination);
+		this.adjacencyList[destination].push(source);
+	}
+
+	hasVertex(vertex) {
+		return this.adjacencyList[vertex] !== undefined;
+	}
+
+	removeEdge(source, destination) {
+		let tempList = this.adjacencyList[source] ;
+		this.adjacencyList[source] = [];
+		for (let v in tempList) {
+			if (v !== destination) {
+				this.adjacencyList[source].push(v);
+			}
+		}
+
+		tempList = this.adjacencyList[destination];
+		this.adjacencyList[destination] = [];
+		for(let v in tempList) {
+			if(v !== source) {
+				this.adjacencyList[destination].push(v);
+			}
+		}
+	}
+
+	removeVertex(vertex) {
+		while(this.adjacencyList[vertex]) {
+			let adjacentVertex = this.adjacencyList[vertex].pop();
+			this.removeEdge(vertex, adjacentVertex);
+		}
+
+		delete this.adjacencyList[vertex];
+	}
+
+	getEdges(vertex) {
+		// console.log(vertex);
+		if(!this.adjacencyList[vertex]) {
+			return null;
+		}
+		// console.log(this.adjacencyList[vertex]);
+		return this.adjacencyList[vertex];
+	}
+}
+
+
+const checkRouteBi = (source, target, inGraph) => {
+	if (! inGraph.hasVertex(source)) {
+		return "unknown source";
+	}
+
+	if (! inGraph.hasVertex(target)) {
+		return "unknown target";
+	}
+
+	let q1 = new Queue();
+	let q2 = new Queue();
+	let visited1 = new Set();
+	let visited2 = new Set();
+	q1.enqueue(source);
+	q2.enqueue(target);
+
+	let currEdge1;
+	let currEdge2;
+	while (!q1.isEmpty() || !q2.isEmpty()) {
+		// console.log(visited1)
+		// console.log(visited2)
+		if (!q1.isEmpty()) {
+			currEdge1 = q1.dequeue();
+			if (currEdge1 === target) {
+				return true;
+			}
+			if (! visited1.has(currEdge1)) {
+				visited1.add(currEdge1);
+				let nextEdgeList1 = inGraph.getEdges(currEdge1);
+				if (nextEdgeList1 !== null ||  nextEdgeList1.length > 0) {
+					for(let nextEdge of nextEdgeList1) {
+						q1.enqueue(nextEdge);
+					}
+				}
+				// }
+
+				// inGraph.adjacencyList[currEdge1].forEach(
+				// 	nextEdge => q1.enqueue(nextEdge));
+				// }
+			}
+		}
+
+		if(!q2.isEmpty()){
+			currEdge2 = q2.dequeue();
+
+			if(currEdge2 === source){
+				return true;
+			}
+			if(! visited2.has(currEdge2)) {
+				visited2.add(currEdge2);
+				// for(let nextEdge of inGraph.getEdges(currEdge2)) {
+				// 	q2.enqueue(nextEdge);
+				let nextEdgeList2 = inGraph.getEdges(currEdge2);
+				if(nextEdgeList2 !== null || nextEdgeList2.length > 0) {
+					for(let nextEdge of nextEdgeList2) {
+						q2.enqueue(nextEdge);
+					}
+				}
+				// inGraph.adjacencyList[currEdge2].forEach(nextEdge => q2.enqueue(nextEdge));
+				// }
+			}
+		}
+	}
+
+	return false;
+}
+
+
+let gr2 = new biGraph();
+gr2.addVertex("A");
+gr2.addVertex("B");
+gr2.addVertex("C");
+gr2.addVertex("D");
+gr2.addVertex("E");
+gr2.addVertex("F");
+
+gr2.addEdge('A', 'B');
+gr2.addEdge('A', 'C');
+gr2.addEdge('B', 'C');
+gr2.addEdge('D', 'E');
+
+//				A          D --- E
+//            /   \
+//			 C --- B
+console.log("Test bidirectional search");
+console.log(gr2.adjacencyList);
+console.log(checkRouteBi("A", "C", gr2));
+console.log(checkRouteBi("A", "E", gr2));
+console.log(checkRouteBi("B", "A", gr2));
+console.log(checkRouteBi("D", "E", gr2));
 
 
