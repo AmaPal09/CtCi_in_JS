@@ -59,3 +59,72 @@ class Queue {
 		}
 	}
 }
+
+
+class BST {
+	constructor(value) {
+		this.value = value;
+		this.left = null;
+		this.right = null;
+	}
+
+	insert(value) {
+		if(value < this.value) {
+			if (this.left === null) {
+				this.left = new BST(value);
+			}
+			else{
+				this.left.insert(value);
+			}
+		}
+		else {
+			if (this.right === null) {
+				this.right = new BST(value);
+			}
+			else{
+				this.right.insert(value);
+			}
+		}
+	}
+
+	printInLevelOrder() {
+		let level = [];
+		let q = new Queue();
+		let nextQ = new Queue();
+		let currNode;
+
+		q.enqueue(this);
+		while(!q.isEmpty()) {
+			currNode = q.dequeue();
+			level.push(currNode.value);
+
+			if (currNode.left !== null) {
+				nextQ.enqueue(currNode.left);
+			}
+
+			if (currNode.right !== null) {
+				nextQ.enqueue(currNode.right);
+			}
+
+			if (q.isEmpty()){
+				console.log(level.join(','));
+				level = [];
+				q = nextQ;
+				nextQ = new Queue();
+			}
+
+		}
+	}
+}
+
+// [1,2,3,4,5,6,7]
+let bst1 = new BST();
+bst1.insert(4);
+bst1.insert(2);
+bst1.insert(6);
+bst1.insert(1);
+bst1.insert(3);
+bst1.insert(5);
+bst1.insert(7);
+
+bst1.printInLevelOrder();
