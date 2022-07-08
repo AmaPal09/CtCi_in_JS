@@ -21,3 +21,41 @@ Assumption:
 Example:
 1)
 */
+
+
+
+class Queue {
+	constructor() {
+		this._queue = [];
+	}
+
+	size() {
+		return this._queue.length;
+	}
+
+	isEmpty() {
+		return this.size() === 0;
+	}
+
+	enqueue(val) {
+		this._queue.push(val);
+	}
+
+	dequeue() {
+		if (this.isEmpty()){
+			return null;
+		}
+		else {
+			return this._queue.shift();
+		}
+	}
+
+	peek() {
+		if (this.isEmpty()) {
+			return null;
+		}
+		else {
+			return this._queue.at(0);
+		}
+	}
+}
