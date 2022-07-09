@@ -22,3 +22,38 @@ Example:
 1)
 */
 
+class Queue {
+	constructor() {
+		this._queue = [];
+	}
+
+	size() {
+		return this._queue.length;
+	}
+
+	isEmpty() {
+		return this.size() === 0;
+	}
+
+	enqueue(value) {
+		this._queue.push(value);
+	}
+
+	peek() {
+		if (this.isEmpty()) {
+			return null;
+		}
+		else {
+			return this._queue.at(0);
+		}
+	}
+
+	dequeue() {
+		if (this.isEmpty()) {
+			return null;
+		}
+		else {
+			return this._queue.shift();
+		}
+	}
+}
