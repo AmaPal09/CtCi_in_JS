@@ -160,7 +160,7 @@ class LinkedList {
 	}
 
 	removeFromIndex(index) {
-		if(index < 0 || inde x > this.size_of_LL()) {
+		if(index < 0 || index > this.size_of_LL()) {
 			console.log("Please enter valid index");
 		}
 
@@ -263,7 +263,7 @@ class BST {
 		q.enqueue(this);
 		while(!q.isEmpty()) {
 			currNode = q.dequeue();
-			level.push()currNode.value;
+			level.push(currNode.value);
 		}
 
 		if (currNode.left !== null) {
@@ -280,3 +280,44 @@ class BST {
 		}
 	}
 };
+
+const listOfDepths = (bst) => {
+	let listOfLists = [];
+	let list = null;
+	let newNode;
+	let q = new Queue();
+	let nextQ = new Queue();
+	let currNode = bst;
+
+	q.enqueue(currNode);
+	while(!q.isEmpty()){
+		currNode = q.dequeue();
+		newNode = new LinkedList(currNode.value);
+		newNode.next = list;
+		list = newNode;
+		if(currNode.left !== null) {
+			nextQ.enqueue(currNode.left);
+		}
+		if(currNode.right !== null) {
+			nextQ.enqueue(currNode.right);
+		}
+		if(q.isEmpty()) {
+			listOfLists.push(list);
+			list = null;
+			q = nextQ;
+			nextQ = new Queue();
+		}
+	}
+
+	return listOfLists;
+}
+
+let tree1 = new BST(4);
+tree1.insert(2);
+tree1.insert(6);
+tree1.insert(1);
+tree1.insert(3);
+tree1.insert(5);
+tree1.insert(7);
+
+console.log(listOfDepths(tree1));
