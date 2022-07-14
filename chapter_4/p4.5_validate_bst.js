@@ -30,7 +30,7 @@ Questions:
 
 /*
 Assumption:
-1)
+1) There are no duplicates present.
 */
 
 /*
@@ -76,3 +76,52 @@ const checkForBST = (root, min, max) => {
 }
 
 console.log(ValidateBST(bst1r), false);
+//Time complexity = O(n)
+//Space O(log n) because of recursion on a balanced tree. Total, O(log N)
+// recurrsive calls on the tree until its depth is reached.
+
+
+//HANDLING DUPLICATES
+//Duplicates can only be on the left side. That is left node can be less
+// than or equal to the parent. Right is always greater than parent.
+const ValidateBSTWithDups = (root) => {
+	return checkForBSTWithDups(root, null, null);
+}
+
+const checkForBSTWithDups = (root, min, max) => {
+	if (root === null) {
+		return true;
+	}
+	// console.log(root.value, min, max);
+	if ((max!== null && root.value > max) || (min !== null && root.value <= min)) {
+		return false;
+	}
+
+	if ( !(checkForBSTWithDups(root.left, min, root.value)) ||  !(checkForBSTWithDups(root.right, root.value, max)) ) {
+		return false;
+	}
+
+	return true;
+}
+
+let bst2r = new BinaryTree(7);
+let bst2a = new BinaryTree(4);
+let bst2b = new BinaryTree(8);
+let bst2c = new BinaryTree(4);
+let bst2d = new BinaryTree(6);
+bst2r.left =  bst2a;
+bst2r.right =  bst2b;
+bst2a.left =  bst2c;
+bst2a.right =  bst2d;
+console.log(ValidateBSTWithDups(bst2r), true);
+
+let bst3r = new BinaryTree(5);
+let bst3a = new BinaryTree(4);
+let bst3b = new BinaryTree(6);
+let bst3c = new BinaryTree(1);
+let bst3d = new BinaryTree(4);
+bst3r.left =  bst3a;
+bst3r.right =  bst3b;
+bst3a.left =  bst3c;
+bst3a.right =  bst3d;
+console.log(ValidateBSTWithDups(bst3r), false);
