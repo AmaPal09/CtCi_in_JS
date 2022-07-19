@@ -170,3 +170,100 @@ console.log("Common Ancestor with Sol2 for 2,8 = " + findLCASol2(2,8).value);
 // Issue: Assumption that both the nodes are present.
 
 
+//Sol3
+//Handle the validation for both the nodes being present.
+// Pass 2 boolean vars v1 and v2. If n1 is present, v1 set to true.
+// If n2 is present, v2 is set to true.
+// Return LCA when both v1 and v2 are true.
+// ASSUMPTION
+// Solution is a method on class.
+// Returns data/value of the LCA node.
+// Nodes n1 and n2 passed as values not actual nodes.
+
+class BiTree {
+	constructor(node) {
+		this.root = node;
+		this.v1 = false;
+		this.v2 = false;
+	}
+
+	findLCASol3(n1, n2) {
+		this.v1 = false;
+		this.v2 = false;
+
+		let lca = this.findLCAWithRootSol3(this.root, n1, n2);
+
+		if (this.v1 && this.v2) {
+			return lca
+		}
+
+		return null;
+	}
+
+	findLCAWithRootSol3(node, n1, n2) {
+		// console.log(node, n1, n2);
+		// console.log(this.v1, this.v2);
+
+		if (node == null) {
+			return null;
+		}
+
+		let temp = null;
+
+		if (node.value == n1 ) {
+			this.v1 = true;
+			temp = node;
+		}
+
+		if (node.value == n2) {
+			this.v2 = true;
+			temp = node;
+		}
+
+		let lcaLeftSub = this.findLCAWithRootSol3(node.left, n1, n2);
+		let lcaRightSub = this.findLCAWithRootSol3(node.right, n1, n2);
+
+		// console.log("temp is " + temp);
+		// console.log("left sub tree is " + lcaLeftSub);
+		// console.log("right sub tree is " + lcaRightSub);
+
+		if (temp != null ) {
+			return temp;
+		}
+
+		if (lcaRightSub != null && lcaLeftSub != null) {
+			return node;
+		}
+
+		return lcaLeftSub != null ? lcaLeftSub : lcaRightSub;
+	}
+}
+
+let biTree1 = new BiTree();
+biTree1.root = root;
+let node1 = biTree1.findLCASol3(4,5);
+
+if (node1 != null) {
+	console.log("Common Ancestor with Sol3 for 4,5 = " + node1.value);
+}
+
+node1 = biTree1.findLCASol3(4,6);
+if (node1 != null) {
+	console.log("Common Ancestor with Sol3 for 4,6 = " + node1.value);
+}
+
+node1 = biTree1.findLCASol3(3,4);
+if (node1 != null) {
+	console.log("Common Ancestor with Sol3 for 3,4 = " + node1.value);
+}
+
+node1 = biTree1.findLCASol3(2,4)
+if (node1 != null) {
+	console.log("Common Ancestor with Sol3 for 2,4 = " + node1.value);
+}
+
+node1 = biTree1.findLCASol3(2,8);
+if (node1 != null) {
+	console.log("Common Ancestor with Sol3 for 2,8 = " + node1.value);
+}
+
