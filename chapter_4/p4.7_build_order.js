@@ -114,3 +114,82 @@ gr1.display();
 
 
 
+//ASSUMPTIONS
+// Prerequisit project of each node is listed as its edge. Its direction.
+
+// Sol
+// 1) Find nodes with no incoming edges. This ensure we staert with some project
+// which does not depend on any other project. If no such project found, cyclic dependencies. So exit with error
+// 2) Remove this project edge from all other project. Once its built, there
+// is no need to store this project. As there is no dependency once its completed.
+// 3) Add the completed project to the project order.
+// 4) Look for nodes with no incoming edges again. Repeat 1,2,3.
+
+function createBuildOrder(inGraph) {
+	console.log(1);
+	let buildOrderArray = [];
+	let independentPrjs;
+
+	while(Object.keys(inGraph.nodes).length != 0) {
+		console.log(2);
+		console.log(buildOrderArray);
+		console.log(inGraph.nodes);
+		independentPrjs = findIndependentPrjs(inGraph);
+		console.log(independentPrjs);
+		//Check for cyclic prjs
+		//If prjs present inGraph but no independent prjs found then cyclic
+		if (independentPrjs.length == 0) {
+			return "Error: Cyclic dependencies";
+		}
+
+		let i = 0;
+
+		while (i < independentPrjs.length) {
+			console.log(3);
+			let prj = independentPrjs[i]
+			completePrj(prj, inGraph);
+			buildOrderArray.push(prj);
+			i++;
+		}
+	}
+
+	return buildOrderArray;
+
+}
+
+function findIndependentPrjs(grph) {
+	//Find nodes with empty edge list
+	let indPrj = [];
+	for (let node in grph.nodes) {
+		if (grph.nodes[node].length == 0) {
+			//No prj is dependent on this prj
+			indPrj.push(node);
+		}
+	}
+	return indPrj;
+}
+
+function completePrj(node, inGraph) {
+	//Remove all edges attached to provided nodes and then remove node
+	// from graph
+	console.log(4);
+	for (let currNode in inGraph.nodes) {
+
+		for (let i = 0; i < inGraph.nodes[currNode].length; i++) {
+			console.log(inGraph.nodes[currNode][i], node);
+			if (inGraph.nodes[currNode][i] == node) {
+				console.log(6);
+				inGraph.nodes[currNode].splice(i, 1);
+			}
+		}
+		// if (node in inGraph.nodes[currNode]) {
+		// 	console.log(5);
+		// 	let index = inGraph.nodes[currNode].indexOf(node);
+		// 	inGraph.nodes[currNode].splice(index, 1);
+		// }
+	}
+
+	inGraph.removeNode(node);
+}
+
+console.log(createBuildOrder(gr1));
