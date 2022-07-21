@@ -46,17 +46,13 @@ class Graph {
 	addEdge(vertex, edge) {
 		if (this.nodes[vertex] == undefined) {
 			return "Node does not exist";
-			console.log("1");
 		}
 		else {
 			if (edge in this.nodes[vertex]) {
 				return "edge already exists";
-				console.log("2");
 			}
 			else {
 				this.nodes[vertex].push(edge);
-				console.log("3");
-				console.log(vertex, this.nodes[vertex]);
 			}
 		}
 	}
@@ -126,16 +122,11 @@ gr1.display();
 // 4) Look for nodes with no incoming edges again. Repeat 1,2,3.
 
 function createBuildOrder(inGraph) {
-	console.log(1);
 	let buildOrderArray = [];
 	let independentPrjs;
 
 	while(Object.keys(inGraph.nodes).length != 0) {
-		console.log(2);
-		console.log(buildOrderArray);
-		console.log(inGraph.nodes);
 		independentPrjs = findIndependentPrjs(inGraph);
-		console.log(independentPrjs);
 		//Check for cyclic prjs
 		//If prjs present inGraph but no independent prjs found then cyclic
 		if (independentPrjs.length == 0) {
@@ -143,9 +134,7 @@ function createBuildOrder(inGraph) {
 		}
 
 		let i = 0;
-
 		while (i < independentPrjs.length) {
-			console.log(3);
 			let prj = independentPrjs[i]
 			completePrj(prj, inGraph);
 			buildOrderArray.push(prj);
@@ -154,8 +143,8 @@ function createBuildOrder(inGraph) {
 	}
 
 	return buildOrderArray;
-
 }
+
 
 function findIndependentPrjs(grph) {
 	//Find nodes with empty edge list
@@ -172,21 +161,12 @@ function findIndependentPrjs(grph) {
 function completePrj(node, inGraph) {
 	//Remove all edges attached to provided nodes and then remove node
 	// from graph
-	console.log(4);
 	for (let currNode in inGraph.nodes) {
-
 		for (let i = 0; i < inGraph.nodes[currNode].length; i++) {
-			console.log(inGraph.nodes[currNode][i], node);
 			if (inGraph.nodes[currNode][i] == node) {
-				console.log(6);
 				inGraph.nodes[currNode].splice(i, 1);
 			}
 		}
-		// if (node in inGraph.nodes[currNode]) {
-		// 	console.log(5);
-		// 	let index = inGraph.nodes[currNode].indexOf(node);
-		// 	inGraph.nodes[currNode].splice(index, 1);
-		// }
 	}
 
 	inGraph.removeNode(node);
