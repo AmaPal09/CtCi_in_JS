@@ -55,6 +55,7 @@ class BST {
 			this.addNode(this.root, newNode);
 		}
 	}
+
 	addNode(node, newNode) {
 		if (newNode.value < node.value) {
 			if (!node.left) {
@@ -80,7 +81,7 @@ let tree1 = new BST();
 tree1.insert(2);
 tree1.insert(1);
 tree1.insert(3);
-console.log(tree1);
+// console.log(tree1);
 
 let tree2 = new BST();
 tree2.insert(50);
@@ -106,32 +107,27 @@ function allSequences(node) {
 
 	let prefix = [];
 	prefix.push(node.value);
-	// console.log(1, prefix);
 	//Recurse through left and right subtrees
 	let leftSeq = allSequences(node.left);
 	let rightSeq = allSequences(node.right);
-	// console.log(2, leftSeq, rightSeq);
 
 	//Weave together each list from the left and the right
 	for (let left of leftSeq) {
 		for (let right of rightSeq) {
 			const weaved = [];
-			// console.log(left, right, weaved, prefix);
 			weaveLists(left, right, weaved, prefix);
-			// console.log(left, right, weaved, prefix);
 			result.push(...weaved);
-			// console.log(result);
 		}
 	}
 
 	return result;
 }
 
+
 function weaveLists(first, second, results, prefix) {
 	//If either of the lists is empty, add remainder of the other list
 	//to a cloned prefix and store the results.
 	if(first.length == 0 || second.length == 0) {
-		// console.log(4, first, second, results,prefix);
 		const tempResult = prefix.slice(0);
 		tempResult.push(...first);
 		tempResult.push(...second);
@@ -159,38 +155,7 @@ function weaveLists(first, second, results, prefix) {
 }
 
 
-// const allSequences = node => {
-//   const result = [];
-
-//   if (!node) {
-//     result.push([])
-//     return result;
-//   }
-//   const prefix = [];
-//   prefix.push(node.value);
-//   console.log(1, prefix);
-//   /* Recurse on left and right subtrees. */
-//   const leftSeq = allSequences(node.left);
-//   const rightSeq = allSequences(node.right);
-//   console.log(2, leftSeq, rightSeq);
-//   Weave together each list from the left and right sides.
-//   for (let left of leftSeq) {
-//     for (let right of rightSeq) {
-//       const weaved = [];
-//       console.log(left, right, weaved, prefix);
-//       weaveLists(left, right, weaved, prefix);
-//       console.log(left, right, weaved, prefix);
-//       result.push(...weaved);
-//       console.log(result);
-//     }
-//   }
-//   return result
-// }
-
-
-
 console.log(allSequences(tree1.root));
-// console.log(allSequences(tree2.root));
 let tree3 = new BST();
 tree3.insert(20);
 tree3.insert(10);
